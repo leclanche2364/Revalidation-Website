@@ -1,0 +1,1155 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revalidation AI Copilot | NMC Revalidation Support for Nurses</title>
+  <meta name="description" content="Track CPD, feedback, reflective accounts, and revalidation records in one place with Revalidation AI Copilot." />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #eef4f7;
+      --text: #183247;
+      --muted: #5f7384;
+      --primary: #1b3a57;
+      --primary-2: #244c70;
+      --accent: #0aa37f;
+      --accent-2: #dff6ef;
+      --border: #dbe6ee;
+      --shadow: 0 10px 30px rgba(27, 58, 87, 0.08);
+      --radius: 22px;
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(100% - 2rem, var(--container));
+      margin: 0 auto;
+    }
+
+    .announcement {
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      color: #fff;
+      text-align: center;
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(219, 230, 238, 0.8);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.28rem 0.5rem;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0 1.1rem;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(10, 163, 127, 0.2);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--primary);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover { border-color: var(--primary); }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 0.7rem 0.8rem;
+      font-weight: 700;
+    }
+
+    section { padding: 5.5rem 0; }
+
+    .hero {
+      padding-top: 4.2rem;
+      padding-bottom: 4rem;
+      background:
+        radial-gradient(circle at top right, rgba(10, 163, 127, 0.12), transparent 22%),
+        linear-gradient(to bottom, #ffffff, var(--bg));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.3rem);
+      max-width: 11ch;
+    }
+
+    h2 { font-size: clamp(2rem, 3vw, 3rem); }
+    h3 { font-size: 1.28rem; }
+
+    .lead {
+      font-size: 1.14rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .trust-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .trust-points span::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 0.45rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .phone {
+      width: 280px;
+      border-radius: 34px;
+      background: #fff;
+      border: 10px solid #102433;
+      box-shadow: 0 24px 60px rgba(27, 58, 87, 0.18);
+      overflow: hidden;
+      position: relative;
+      z-index: 2;
+    }
+
+    .phone::before {
+      content: "";
+      width: 120px;
+      height: 18px;
+      background: #102433;
+      border-radius: 0 0 16px 16px;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .screen {
+      padding: 2.2rem 1rem 1rem;
+      background: linear-gradient(180deg, #f7fbfd, #eef4f7);
+      min-height: 540px;
+    }
+
+    .screen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .progress-card,
+    .mini-card,
+    .floating-card,
+    .step-card,
+    .feature-card,
+    .reason-card,
+    .trust-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-card {
+      padding: 1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .progress-pill {
+      display: inline-block;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: var(--accent-2);
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .meter {
+      height: 10px;
+      border-radius: 999px;
+      background: #e7eef3;
+      overflow: hidden;
+      margin: 0.8rem 0;
+    }
+
+    .meter > span {
+      display: block;
+      height: 100%;
+      width: 68%;
+      background: linear-gradient(90deg, var(--accent), #4fd1b4);
+      border-radius: inherit;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+
+    .mini-card {
+      padding: 0.9rem;
+    }
+
+    .mini-label {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .mini-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-top: 0.15rem;
+    }
+
+    .floating-card {
+      position: absolute;
+      width: 230px;
+      padding: 1rem;
+      z-index: 3;
+    }
+
+    .floating-top {
+      top: 55px;
+      right: 10px;
+    }
+
+    .floating-bottom {
+      bottom: 50px;
+      left: 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .trust-grid,
+    .features-grid,
+    .reasons-grid,
+    .footer-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .trust-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-card,
+    .feature-card,
+    .reason-card {
+      padding: 1.35rem;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--accent-2);
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .problem {
+      background: linear-gradient(180deg, #fff, #f9fcfd);
+    }
+
+    .problem-grid,
+    .privacy-grid,
+    .invite-grid,
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .problem-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      padding: 1rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .tick {
+      flex: 0 0 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--accent-2);
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .checklist-card {
+      padding: 1.4rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .checklist-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.1rem 0 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .checklist-card li {
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      background: var(--surface-alt);
+      font-weight: 600;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1rem;
+    }
+
+    .step-card {
+      padding: 1.25rem 1rem;
+      min-height: 210px;
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 0.9rem;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .screenshots {
+      background: linear-gradient(180deg, #ffffff, #f2f7fa);
+    }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.2rem;
+    }
+
+    .shot-large,
+    .shot-stack > div {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 1.2rem;
+      min-height: 260px;
+    }
+
+    .shot-stack {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .fake-ui-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #d9e5ec;
+    }
+
+    .mock-block {
+      background: linear-gradient(180deg, #f7fbfd, #edf4f8);
+      border-radius: 20px;
+      padding: 1rem;
+      min-height: 180px;
+      border: 1px solid var(--border);
+    }
+
+    .reasons-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .privacy-card,
+    .invite-card,
+    .cta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 1.6rem;
+    }
+
+    .privacy-list,
+    .invite-points {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .privacy-list li,
+    .invite-points li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .cta-wrap {
+      padding-top: 2rem;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cta-card::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      right: -70px;
+      top: -90px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .cta-card .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
+
+    .site-footer {
+      background: #0f2434;
+      color: rgba(255, 255, 255, 0.86);
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      align-items: start;
+    }
+
+    .site-footer h4 {
+      color: #fff;
+      margin: 0 0 0.9rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-bottom {
+      margin-top: 2.2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .problem-grid,
+      .privacy-grid,
+      .invite-grid,
+      .cta-grid,
+      .screenshots-grid,
+      .footer-grid,
+      .trust-grid,
+      .features-grid,
+      .reasons-grid,
+      .steps-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-visual {
+        min-height: 500px;
+      }
+
+      .footer-grid > :first-child {
+        grid-column: 1 / -1;
+      }
+
+      .nav-links {
+        position: absolute;
+        inset: 78px 1rem auto 1rem;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+      }
+
+      .nav-links.open { display: flex; }
+      .menu-btn { display: inline-flex; }
+      .nav-actions .btn-primary { display: none; }
+    }
+
+    @media (max-width: 760px) {
+      section { padding: 4.2rem 0; }
+
+      .hero-grid,
+      .problem-grid,
+      .privacy-grid,
+      .invite-grid,
+      .cta-grid,
+      .screenshots-grid,
+      .trust-grid,
+      .features-grid,
+      .reasons-grid,
+      .steps-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      h1 { max-width: none; }
+      .hero-visual { min-height: auto; padding-top: 1rem; }
+      .phone { width: min(100%, 290px); }
+      .floating-card { position: static; width: 100%; margin-top: 1rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .trust-points { flex-direction: column; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Built to support NMC revalidation for nurses — mobile app available now.</div>
+
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="#top" aria-label="Revalidation Copilot home">
+        <span class="brand-mark">R</span>
+        <span>Revalidation AI Copilot</span>
+      </a>
+
+      <button class="menu-btn" type="button" aria-label="Toggle menu" id="menuBtn">Menu</button>
+
+  <ul class="nav-links" id="navLinks">
+  <li><a href="#top">Home</a></li>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#how-it-works">How It Works</a></li>
+  <li><a href="#invite">Invite</a></li>
+  <li><a href="#support">Support</a></li>
+  <li><a href="blog/">Blog</a></li>
+  <li><span class="coming-soon">Web App <span class="badge">Coming Soon</span></span></li>
+</ul>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="#download">Download App</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Built for UK nurses</div>
+          <h1>Stay on top of your NMC revalidation</h1>
+          <p class="lead">Track CPD, feedback, reflective accounts, and supporting evidence in one place — with AI support to help you draft faster and stay organised.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#download">Download App</a>
+            <a class="btn btn-secondary" href="#how-it-works">See How It Works</a>
+          </div>
+          <div class="trust-points">
+            <span>Structured around revalidation workflow</span>
+            <span>Mobile access available now</span>
+            <span>Export-ready records</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="floating-card floating-top">
+            <div class="progress-pill">Reflection Draft</div>
+            <strong>AI-assisted drafting</strong>
+            <p class="muted" style="margin:0.45rem 0 0;">Turn notes into a clearer starting draft you can review and edit.</p>
+          </div>
+
+          <div class="phone">
+            <div class="screen">
+              <div class="screen-header">
+                <span>Dashboard</span>
+                <span class="badge">Due in 4 months</span>
+              </div>
+
+              <div class="progress-card">
+                <div class="progress-pill">Revalidation Progress</div>
+                <strong>68% complete</strong>
+                <div class="meter"><span></span></div>
+                <div class="muted">You are on track with CPD, feedback, and reflective records.</div>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini-card">
+                  <div class="mini-label">CPD Hours</div>
+                  <div class="mini-value">24</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-label">Feedback</div>
+                  <div class="mini-value">4</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-label">Reflections</div>
+                  <div class="mini-value">3</div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-label">Evidence</div>
+                  <div class="mini-value">12</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-card floating-bottom">
+            <div class="progress-pill">Export Ready</div>
+            <strong>All your records together</strong>
+            <p class="muted" style="margin:0.45rem 0 0;">Keep entries accessible and easier to review before submission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="card-icon">01</div>
+            <h3>Built for nurses</h3>
+            <p class="muted">Created around the way nurses prepare for NMC revalidation.</p>
+          </div>
+          <div class="trust-card">
+            <div class="card-icon">02</div>
+            <h3>Revalidation-focused</h3>
+            <p class="muted">Designed for CPD, feedback, reflections, and evidence tracking.</p>
+          </div>
+          <div class="trust-card">
+            <div class="card-icon">03</div>
+            <h3>Secure access</h3>
+            <p class="muted">A calm, structured space to keep your records organised.</p>
+          </div>
+          <div class="trust-card">
+            <div class="card-icon">04</div>
+            <h3>Export-ready records</h3>
+            <p class="muted">Review what you have completed and what still needs attention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="problem">
+      <div class="container problem-grid">
+        <div>
+          <div class="eyebrow">A common challenge</div>
+          <h2>Revalidation is easier when your records are not scattered everywhere</h2>
+          <p class="lead">Many nurses end up piecing together notes from phones, emails, paper forms, and old files. That makes the process more stressful than it needs to be.</p>
+          <div class="problem-list">
+            <div class="problem-item">
+              <div class="tick">✓</div>
+              <div><strong>CPD notes spread across different places</strong><br><span class="muted">Harder to review when your renewal date gets closer.</span></div>
+            </div>
+            <div class="problem-item">
+              <div class="tick">✓</div>
+              <div><strong>Feedback is easy to lose over time</strong><br><span class="muted">Useful comments get buried in messages and memory.</span></div>
+            </div>
+            <div class="problem-item">
+              <div class="tick">✓</div>
+              <div><strong>Reflective writing often gets delayed</strong><br><span class="muted">Drafting can feel like the hardest part when you leave it late.</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="checklist-card">
+            <div class="progress-pill">One organised workflow</div>
+            <h3>Bring your revalidation records together</h3>
+            <p class="muted">Revalidation AI Copilot helps you keep the essentials in one place throughout the cycle.</p>
+            <ul>
+              <li>Log CPD and practice-related learning</li>
+              <li>Save and organise feedback</li>
+              <li>Draft reflective accounts from your notes</li>
+              <li>Track progress toward renewal</li>
+              <li>Prepare records for review and export</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">How it works</div>
+          <h2>A simpler way to manage your revalidation journey</h2>
+          <p>Structured around the core workflow nurses already know, with tools that help you stay organised from early in the cycle.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Set your date</h3>
+            <p class="muted">Start with your revalidation deadline so your progress stays visible.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Log CPD</h3>
+            <p class="muted">Keep learning activities and practice-related development together.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Capture feedback</h3>
+            <p class="muted">Save meaningful feedback as you receive it instead of searching later.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Draft reflections</h3>
+            <p class="muted">Turn notes into a stronger starting point for reflective writing.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">5</div>
+            <h3>Organise evidence</h3>
+            <p class="muted">Keep supporting files and records accessible when you need them.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">6</div>
+            <h3>Track progress</h3>
+            <p class="muted">See what you have completed and where more work is needed.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">7</div>
+            <h3>Export records</h3>
+            <p class="muted">Prepare your information in a clearer format for review.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Feature highlights</div>
+          <h2>Designed to reduce last-minute stress</h2>
+          <p>Each feature is focused on helping nurses keep records clearer, easier to review, and easier to build over time.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="card-icon">CP</div>
+            <h3>CPD Tracker</h3>
+            <p class="muted">Record learning activity and keep your development history in one place.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-icon">FB</div>
+            <h3>Feedback Log</h3>
+            <p class="muted">Store valuable feedback so it is easier to revisit when reflecting on practice.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-icon">AI</div>
+            <h3>Reflective Drafting</h3>
+            <p class="muted">Use AI support to shape rough notes into a clearer starting draft.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-icon">EV</div>
+            <h3>Evidence Storage</h3>
+            <p class="muted">Keep files and supporting material more accessible throughout the cycle.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-icon">RM</div>
+            <h3>Reminders</h3>
+            <p class="muted">Stay aware of your timeline and avoid leaving key records until the end.</p>
+          </article>
+          <article class="feature-card">
+            <div class="card-icon">EX</div>
+            <h3>Export Pack</h3>
+            <p class="muted">Bring entries together in a cleaner format that is easier to review.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="screenshots">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Product preview</div>
+          <h2>Designed to keep your records clear and accessible</h2>
+          <p>Use real app screenshots here later. For now, these placeholders show the intended layout and product feel.</p>
+        </div>
+        <div class="screenshots-grid">
+          <div class="shot-large">
+            <div class="fake-ui-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="mock-block">
+              <h3>Dashboard overview</h3>
+              <p class="muted">Highlight revalidation progress, CPD totals, reflections, and recent activity here.</p>
+              <div class="meter"><span style="width:74%"></span></div>
+              <div class="mini-grid">
+                <div class="mini-card"><div class="mini-label">Practice Hours</div><div class="mini-value">410</div></div>
+                <div class="mini-card"><div class="mini-label">Participatory CPD</div><div class="mini-value">18</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="shot-stack">
+            <div>
+              <div class="fake-ui-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="mock-block">
+                <h3>Reflection drafting</h3>
+                <p class="muted">Show how notes become a draft the user can review and refine.</p>
+              </div>
+            </div>
+            <div>
+              <div class="fake-ui-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="mock-block">
+                <h3>Export and review</h3>
+                <p class="muted">Present records in a cleaner format when the user is getting closer to renewal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Why nurses use it</div>
+          <h2>Built for busy nurses who do not want last-minute stress</h2>
+          <p>The goal is not to replace your judgement. It is to make the revalidation process easier to manage and easier to review.</p>
+        </div>
+        <div class="reasons-grid">
+          <div class="reason-card">
+            <div class="card-icon">01</div>
+            <h3>Stay organised</h3>
+            <p class="muted">Keep records together across the cycle instead of collecting everything at the end.</p>
+          </div>
+          <div class="reason-card">
+            <div class="card-icon">02</div>
+            <h3>Draft faster</h3>
+            <p class="muted">Use AI support to shape your notes into clearer reflective drafts more quickly.</p>
+          </div>
+          <div class="reason-card">
+            <div class="card-icon">03</div>
+            <h3>Review with confidence</h3>
+            <p class="muted">Track what is complete and what still needs attention before your deadline arrives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container privacy-grid">
+        <div>
+          <div class="eyebrow">Privacy and responsibility</div>
+          <h2>Supportive AI, with you still in control</h2>
+          <p class="lead">The app is designed to support organisation and drafting, while keeping professional review and responsibility with the user.</p>
+          <ul class="privacy-list">
+            <li><span class="tick">✓</span><span>Avoid entering patient-identifiable information into records and drafts.</span></li>
+            <li><span class="tick">✓</span><span>Review, edit, and finalise any AI-assisted content before using it.</span></li>
+            <li><span class="tick">✓</span><span>Use the app as a support tool for record-keeping, not as a replacement for professional judgement.</span></li>
+          </ul>
+        </div>
+        <div class="privacy-card" id="support">
+          <div class="progress-pill">Need support?</div>
+          <h3>Built with trust and clarity in mind</h3>
+          <p class="muted">Your public site should also link clearly to support, privacy, and terms pages so users can find help and understand how the platform works.</p>
+          <div class="hero-actions" style="margin-top:1.2rem; margin-bottom:0;">
+            <a class="btn btn-primary" href="support.html">Support</a>
+            <a class="btn btn-secondary" href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="invite">
+      <div class="container invite-grid">
+        <div class="invite-card">
+          <div class="progress-pill">Invite a colleague</div>
+          <h2>Help another nurse stay organised too</h2>
+          <p class="lead">Add your referral flow here later. For now, this section gives you a clear place to explain how colleague invites work and where users can learn more.</p>
+          <ul class="invite-points">
+            <li><span class="tick">1</span><span>Share your invite link with a colleague.</span></li>
+            <li><span class="tick">2</span><span>They discover the app through a dedicated invite page.</span></li>
+            <li><span class="tick">3</span><span>You can reward successful invites with an extra AI use.</span></li>
+          </ul>
+        </div>
+        <div>
+          <div class="eyebrow">Referral-ready structure</div>
+          <h2>A homepage that already makes room for growth</h2>
+          <p class="lead">The public site can focus on trust and conversion, while your future invite page handles referred traffic in a cleaner, more focused way.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="invite.html">Visit Invite Page</a>
+            <a class="btn btn-secondary" href="#download">Download App</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-wrap" id="download">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-grid">
+            <div>
+              <div class="eyebrow" style="background: rgba(255,255,255,0.12); color:#fff;">Get started</div>
+              <h2>Make revalidation less stressful</h2>
+              <p style="color: rgba(255,255,255,0.78); max-width: 55ch;">Keep your CPD, feedback, reflections, and supporting evidence together in one place with Revalidation AI Copilot.</p>
+            </div>
+            <div style="display:flex; justify-content:flex-end; align-items:center; gap:0.9rem; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="#">Download on App Store</a>
+              <a class="btn btn-secondary" href="#">Get it on Google Play</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom:0.9rem; color:#fff;">
+            <span class="brand-mark">R</span>
+            <span>Revalidation AI Copilot</span>
+          </div>
+          <p style="max-width: 34ch; margin:0; color: rgba(255,255,255,0.72);">A platform designed to help nurses stay organised for NMC revalidation with clearer records, helpful drafting support, and less last-minute stress.</p>
+        </div>
+
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="#top">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+
+      <div>
+  <h4>Resources</h4>
+  <ul class="footer-links">
+    <li><a href="blog/">Blog</a></li>
+    <li><a href="invite.html">Invite</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+
+        <div>
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li>Web App <span class="badge">Coming Soon</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">© 2026 Beemal Innovation. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
