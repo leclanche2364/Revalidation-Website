@@ -242,12 +242,13 @@
     .phone {
       width: 280px;
       border-radius: 34px;
-      background: #fff;
+      background: #102433;
       border: 10px solid #102433;
       box-shadow: 0 24px 60px rgba(27, 58, 87, 0.18);
       overflow: hidden;
       position: relative;
       z-index: 2;
+      aspect-ratio: 9 / 19;
     }
 
     .phone::before {
@@ -263,22 +264,6 @@
       z-index: 2;
     }
 
-    .screen {
-      padding: 2.2rem 1rem 1rem;
-      background: linear-gradient(180deg, #f7fbfd, #eef4f7);
-      min-height: 540px;
-    }
-
-    .screen-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .progress-card,
-    .mini-card,
     .floating-card,
     .step-card,
     .feature-card,
@@ -289,12 +274,6 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-
-    .progress-card {
-      padding: 1rem;
-      margin-bottom: 0.9rem;
-    }
-
     .progress-pill {
       display: inline-block;
       padding: 0.28rem 0.6rem;
@@ -306,42 +285,6 @@
       margin-bottom: 0.8rem;
     }
 
-    .meter {
-      height: 10px;
-      border-radius: 999px;
-      background: #e7eef3;
-      overflow: hidden;
-      margin: 0.8rem 0;
-    }
-
-    .meter > span {
-      display: block;
-      height: 100%;
-      width: 68%;
-      background: linear-gradient(90deg, var(--accent), #4fd1b4);
-      border-radius: inherit;
-    }
-
-    .mini-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-    }
-
-    .mini-card {
-      padding: 0.9rem;
-    }
-
-    .mini-label {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .mini-value {
-      font-size: 1.4rem;
-      font-weight: 800;
-      margin-top: 0.15rem;
-    }
 
     .floating-card {
       position: absolute;
@@ -518,27 +461,6 @@
     .shot-stack {
       display: grid;
       gap: 1.2rem;
-    }
-
-    .fake-ui-bar {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: #d9e5ec;
-    }
-
-    .mock-block {
-      background: linear-gradient(180deg, #f7fbfd, #edf4f8);
-      border-radius: 20px;
-      padding: 1rem;
-      min-height: 180px;
-      border: 1px solid var(--border);
     }
 
     .reasons-grid {
@@ -780,38 +702,7 @@
           </div>
 
           <div class="phone">
-            <div class="screen">
-              <div class="screen-header">
-                <span>Dashboard</span>
-                <span class="badge">Due in 4 months</span>
-              </div>
-
-              <div class="progress-card">
-                <div class="progress-pill">Revalidation Progress</div>
-                <strong>68% complete</strong>
-                <div class="meter"><span></span></div>
-                <div class="muted">You are on track with CPD, feedback, and reflective records.</div>
-              </div>
-
-              <div class="mini-grid">
-                <div class="mini-card">
-                  <div class="mini-label">CPD Hours</div>
-                  <div class="mini-value">24</div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-label">Feedback</div>
-                  <div class="mini-value">4</div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-label">Reflections</div>
-                  <div class="mini-value">3</div>
-                </div>
-                <div class="mini-card">
-                  <div class="mini-label">Evidence</div>
-                  <div class="mini-value">12</div>
-                </div>
-              </div>
-            </div>
+            <img src="/assets/dashboard-screen.jpg" alt="Revalidation Copilot dashboard showing CPD progress, feedback count, and reflective accounts" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:24px;" />
           </div>
 
           <div class="floating-card floating-bottom">
@@ -982,35 +873,18 @@
         <div class="section-head">
           <div class="eyebrow">Product preview</div>
           <h2>Designed to keep your records clear and accessible</h2>
-          <p>Use real app screenshots here later. For now, these placeholders show the intended layout and product feel.</p>
+          <p>Your CPD log, dashboard, and entry forms in one place.</p>
         </div>
         <div class="screenshots-grid">
           <div class="shot-large">
-            <div class="fake-ui-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="mock-block">
-              <h3>Dashboard overview</h3>
-              <p class="muted">Highlight revalidation progress, CPD totals, reflections, and recent activity here.</p>
-              <div class="meter"><span style="width:74%"></span></div>
-              <div class="mini-grid">
-                <div class="mini-card"><div class="mini-label">Practice Hours</div><div class="mini-value">410</div></div>
-                <div class="mini-card"><div class="mini-label">Participatory CPD</div><div class="mini-value">18</div></div>
-              </div>
-            </div>
+            <img src="/assets/dashboard-screen.jpg" alt="Revalidation Copilot dashboard" style="width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);" />
           </div>
           <div class="shot-stack">
             <div>
-              <div class="fake-ui-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <div class="mock-block">
-                <h3>Reflection drafting</h3>
-                <p class="muted">Show how notes become a draft the user can review and refine.</p>
-              </div>
+              <img src="/assets/cpd-main-screen.jpg" alt="CPD log screen" style="width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);" />
             </div>
             <div>
-              <div class="fake-ui-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <div class="mock-block">
-                <h3>Export and review</h3>
-                <p class="muted">Present records in a cleaner format when the user is getting closer to renewal.</p>
-              </div>
+              <img src="/assets/cpd-add-entry.jpg" alt="Add CPD entry screen" style="width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);" />
             </div>
           </div>
         </div>
