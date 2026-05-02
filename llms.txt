@@ -1,0 +1,40 @@
+# Revalidation Copilot
+
+> An AI-powered app that helps UK nurses complete their NMC revalidation — reflective accounts, CPD tracking, practice hours, feedback, and reflective discussion notes, all in one place.
+
+## What it does
+
+- **Generates NMC-compliant reflective accounts** — speak or type your experience, the app structures it into the NMC format with Code connections, ready to review and export
+- **Tracks CPD hours** — log participatory and non-participatory CPD, see running totals against the 35-hour requirement
+- **Calculates practice hours** — enter your date range and contracted schedule, the app works out your total automatically
+- **Organises feedback and reflective discussion notes** — keep everything for your 3-year cycle in one dashboard
+- **Supports the NMC Code** — reflections auto-link to the four themes: prioritise people, practise effectively, preserve safety, promote professionalism and trust
+
+## Who it's for
+
+UK nurses, midwives, and nursing associates on the NMC register who want to complete revalidation without last-minute stress.
+
+## Pricing
+
+- Free to try (1 free AI generation, full dashboard access)
+- £12.99/year for unlimited AI generations, save and export
+
+## Key pages
+
+- Homepage: https://revalidationaicopilot.co.uk/
+- How it works: https://revalidationaicopilot.co.uk/how-it-works.html
+- Features: https://revalidationaicopilot.co.uk/features.html
+- Blog: https://revalidationaicopilot.co.uk/blog/
+- Privacy: https://revalidationaicopilot.co.uk/privacy.html
+- Terms: https://revalidationaicopilot.co.uk/terms.html
+
+## Blog articles
+
+- How to Write Reflective Accounts (With Examples): https://revalidationaicopilot.co.uk/blog/how-to-write-reflective-accounts-nursing.html
+- NMC Revalidation: A Complete Step-by-Step Guide: https://revalidationaicopilot.co.uk/blog/nmc-revalidation-step-by-step-guide.html
+- What Counts as CPD for NMC Revalidation (35 Hours Explained): https://revalidationaicopilot.co.uk/blog/what-counts-as-cpd-for-nmc-revalidation.html
+- 450 Practice Hours — Do You Really Need to Track Every Single One?: https://revalidationaicopilot.co.uk/blog/nmc-revalidation-practice-hours.html
+
+## About
+
+Built by Beemal Innovation Ltd. Independent tool — not affiliated with, endorsed by, or approved by the Nursing and Midwifery Council (NMC).
