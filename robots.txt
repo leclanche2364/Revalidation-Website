@@ -14,4 +14,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://revalidationaicopilot.co.uk/sitemap.xml
+Sitemap: https://www.revalidationaicopilot.co.uk/sitemap.xml
