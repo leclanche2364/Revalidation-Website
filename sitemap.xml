@@ -111,4 +111,10 @@
     <loc>https://www.revalidationaicopilot.co.uk/contact.html</loc>
   </url>
 
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-forms-2026.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
