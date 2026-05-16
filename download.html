@@ -101,5 +101,18 @@
   <p>© 2026 Beemal Innovation · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
 </footer>
 
+  <script>
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const ref = params.get('ref');
+
+      if (ref && ref.trim()) {
+        localStorage.setItem('pending_referral_code', ref.trim());
+
+        // Also try to deep link to the app so it can pick up the stored code
+        window.location.href = 'revalidationaicopilot://invite?ref=' + encodeURIComponent(ref.trim());
+      }
+    })();
+  </script>
 </body>
 </html>
