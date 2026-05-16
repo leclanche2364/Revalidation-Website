@@ -1,6 +1,5 @@
 -- ============================================
 -- Run this ENTIRE block in Supabase SQL Editor
--- Then refresh the schema cache (click the refresh icon in the Table Editor)
 -- ============================================
 
 -- Step 1: Create the table (safe to re-run)
@@ -43,3 +42,6 @@ CREATE INDEX IF NOT EXISTS idx_affiliate_signups_created_at
 -- Step 5: Unique email (prevents duplicates)
 CREATE UNIQUE INDEX IF NOT EXISTS idx_affiliate_signups_email
   ON public.affiliate_signups (email);
+
+-- Step 6: Refresh API schema cache (critical - without this the form gets 404)
+NOTIFY pgrst, 'reload schema';
