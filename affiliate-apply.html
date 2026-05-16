@@ -128,6 +128,7 @@
   <script>
     // ─── CONFIG ───────────────────────────────────────────────
     const SUPABASE_URL = 'https://otzyqghfozevhhrcewnm.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im90enlxZ2hmb3pldmhocmNld25tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI4OTI5MzQsImV4cCI6MjA4ODQ2ODkzNH0.XUjAr8ILj3fC8uKrHtKLas_sZR-mV3AlY0H-1fATplY';
     // ──────────────────────────────────────────────────────────
 
     const form = document.getElementById('affiliateForm');
@@ -156,26 +157,30 @@
       }
 
       try {
-        const res = await fetch(`${SUPABASE_URL}/functions/v1/affiliate-signup`, {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/submit_affiliate_signup`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          },
           body: JSON.stringify({
-            full_name: fullName,
-            email: email,
-            social_handle: socialHandle || '',
-            platform: platform || '',
-            follower_count: followerCount || '',
-            audience_niche: audienceNiche || '',
-            why_you: whyYou || '',
+            p_full_name: fullName,
+            p_email: email,
+            p_social_handle: socialHandle || '',
+            p_platform: platform || '',
+            p_follower_count: followerCount || '',
+            p_audience_niche: audienceNiche || '',
+            p_why_you: whyYou || '',
           }),
         });
 
         const result = await res.json();
 
-        if (!res.ok) {
+        if (!res.ok || result.error) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit application';
-          if (res.status === 409) {
+          if (result.error === 'duplicate_email') {
             showError('You\'ve already applied with this email. We\'ll be in touch soon!');
             return;
           }
