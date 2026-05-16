@@ -1,6 +1,5 @@
 // Revalidation Copilot - Affiliate Signup Edge Function
-// Deploy via: supabase functions deploy affiliate-signup
-// Or paste into Supabase Dashboard > Edge Functions
+// Paste this into: Supabase Dashboard > Edge Functions > Create Function > "affiliate-signup"
 
 import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
@@ -9,7 +8,6 @@ serve(async (req) => {
   try {
     const { full_name, email, social_handle, platform, follower_count, audience_niche, why_you } = await req.json()
 
-    // Validate
     if (!full_name || !email) {
       return new Response(JSON.stringify({ error: 'Name and email are required' }), {
         status: 400,
@@ -22,7 +20,6 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
-    // Insert
     const { error } = await supabase
       .from('affiliate_signups')
       .insert({
