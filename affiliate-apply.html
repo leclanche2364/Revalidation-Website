@@ -180,9 +180,16 @@
 
         if (!res.ok) {
           const text = await res.text();
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit application';
           // Handle duplicate email gracefully
           if (res.status === 409) {
             showError('You\'ve already applied with this email. We\'ll be in touch soon!');
+            return;
+          }
+          // Handle table-not-found (SQL not run yet)
+          if (res.status === 404 || res.status === 400) {
+            showError('The signup system is being set up. Please email support@revalidationaicopilot.co.uk to apply.');
             return;
           }
           throw new Error(text || 'Failed to submit');
@@ -198,10 +205,9 @@
         });
       } catch (err) {
         console.error('Affiliate signup error:', err);
-        showError('Something went wrong. Please try again or email us at support@revalidationaicopilot.co.uk');
-      } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit application';
+        showError('Something went wrong. Please try again or email us at support@revalidationaicopilot.co.uk');
       }
     });
 
