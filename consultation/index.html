@@ -384,7 +384,7 @@
         </p>
         <div class="wizard-nav">
           <button class="wizard-btn-back" onclick="showScreen('landing')">← Back</button>
-          <button class="wizard-btn-next" onclick="showScreen('q_0')">Start the Wizard →</button>
+          <button class="wizard-btn-next" onclick="startWizardFromIntro()">Start the Wizard →</button>
         </div>
       </div>
     </div>
@@ -591,7 +591,17 @@ function startWizard() {
     } catch(e) {}
   }
   renderCurrentQuestion();
-  showScreen('intro');
+}
+
+function startWizardFromIntro() {
+  state = {
+    screen: 'intro',
+    currentTheme: 0,
+    currentItem: 0,
+    answers: {},
+    progress: 0
+  };
+  renderCurrentQuestion();
 }
 
 // ====== RENDER QUESTIONS ======
