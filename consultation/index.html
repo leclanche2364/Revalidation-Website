@@ -737,15 +737,39 @@ function submitReminderEmail() {
     return;
   }
   
-  // Save to localStorage for now, try to send best-effort
+  // Save to localStorage
   localStorage.setItem('nmc_consultation_reminder_email', email);
   
-  // Show success immediately (offline-first)
-  status.textContent = '✅ Got it! We\'ll remind you when the consultation opens.';
-  status.style.color = '#0aa37f';
-  document.getElementById('reminderEmail').disabled = true;
+  // Send to Notion via the worker
+  const btn = document.querySelector('.wizard-submit-btn');
+  if (btn) btn.disabled = true;
+  status.textContent = 'Saving...';
+  status.style.color = 'var(--text-secondary)';
   
-  gtag('event', 'consultation_reminder_signup', { email: email });
+  fetch('https://affiliate-signup.odubunmi.workers.dev', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      type: 'consultation_reminder',
+      email: email
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      status.textContent = '✅ Saved! We\'ll remind you when the consultation opens.';
+    } else {
+      status.textContent = '✅ Got it (saved locally) — we\'ll remind you.';
+    }
+    status.style.color = '#0aa37f';
+    document.getElementById('reminderEmail').disabled = true;
+    gtag('event', 'consultation_reminder_signup', { email: email });
+  })
+  .catch(() => {
+    status.textContent = '✅ Got it (saved locally) — we\'ll remind you.';
+    status.style.color = '#0aa37f';
+    document.getElementById('reminderEmail').disabled = true;
+  });
 }
 
 function generatePDF() {
