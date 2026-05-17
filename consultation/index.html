@@ -400,66 +400,40 @@
         <div id="reviewContent"></div>
         <div class="wizard-nav">
           <button class="wizard-btn-back" onclick="goBack()">← Back</button>
-          <button class="wizard-btn-next" onclick="showScreen('emailGate')">Continue →</button>
+          <button class="wizard-btn-next" onclick="handleDone()">Download My Response →</button>
         </div>
       </div>
     </div>
 
-    <!-- Email Gate Screen -->
-    <div class="wizard-screen" data-screen="emailGate">
-      <div class="wizard-card">
-        <div class="wizard-email-gate">
-          <h2>Save Your Response</h2>
-          <p>Enter your email to save your draft for September or submit directly to the NMC when the consultation opens.</p>
-          <input type="email" class="wizard-email-input" id="emailInput" placeholder="Your email address" required />
-          <label style="display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:16px;font-size:0.88rem;color:var(--text-secondary);">
-            <input type="checkbox" id="consentCheck" checked />
-            Send me revalidation tips and updates
-          </label>
-          <button class="wizard-submit-btn" onclick="handleEmailSubmit()">Save My Draft →</button>
-          <button class="wizard-skip-btn" onclick="handleSkipEmail()">Skip — Download PDF Only (Free, No Email)</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Success Screen -->
-    <div class="wizard-screen" data-screen="success">
+    <!-- Done Screen (Download + App upsell, no email) -->
+    <div class="wizard-screen" data-screen="done">
       <div class="wizard-card">
         <div class="wizard-success">
-          <div class="wizard-success-icon">✅</div>
-          <h2>Your draft is saved!</h2>
-          <p>We'll email you at <strong id="successEmail"></strong> when the NMC consultation opens in September. You'll be able to review and submit your response in one click.</p>
+          <div class="wizard-success-icon">💾</div>
+          <h2>Your response is ready</h2>
+          <p>Your draft is saved on this device. Download your PDF to submit to the NMC when the consultation opens in September 2026.</p>
+          <p style="font-size:0.88rem;color:var(--text-secondary);margin:0 0 20px;">
+            📥 Your draft auto-saves to this device — come back any time to continue.<br/>
+            📄 The PDF is your final response. Submit it at <a href="https://www.nmc.org.uk" target="_blank" style="color:var(--primary);">nmc.org.uk</a> when the consultation opens.
+          </p>
           <div class="wizard-success-buttons">
-            <button class="wizard-success-btn wizard-success-btn-primary" onclick="window.open('https://www.revalidationaicopilot.co.uk', '_blank')">Try Revalidation Copilot →</button>
-            <button class="wizard-success-btn wizard-success-btn-secondary" onclick="showScreen('landing')">Start Over</button>
+            <button class="wizard-success-btn wizard-success-btn-primary" onclick="generatePDF()">📄  Download PDF (Free)</button>
+            <button class="wizard-success-btn wizard-success-btn-secondary" onclick="showScreen('intro')">← Back to Review</button>
           </div>
           
-          <div class="wizard-upsell">
-            <h3>📱 While you wait...</h3>
-            <p>The same AI that powers this wizard can help with your actual revalidation. Turn a voice note into an NMC-compliant reflective account in seconds.</p>
+          <div class="wizard-upsell" style="margin-top:28px;">
+            <h3>💪 The same AI powers Revalidation Copilot</h3>
+            <p>Turn a voice note into an NMC-compliant reflective account in 10 seconds. Track your CPD hours, log practice hours, and export your full portfolio.</p>
             <div class="wizard-upsell-features">
-              <span class="wizard-upsell-feature">✅ Voice-to-reflection</span>
+              <span class="wizard-upsell-feature">🎙️ Voice-to-reflection</span>
               <span class="wizard-upsell-feature">✅ CPD hour tracker</span>
-              <span class="wizard-upsell-feature">✅ Free to start</span>
-              <span class="wizard-upsell-feature">✅ Pro £12.99/yr</span>
+              <span class="wizard-upsell-feature">💪 Free to start</span>
             </div>
-            <a href="https://www.revalidationaicopilot.co.uk/download.html" class="wizard-upsell-btn" target="_blank">Try Free (No Signup) →</a>
+            <a href="https://www.revalidationaicopilot.co.uk/download.html" class="wizard-upsell-btn" target="_blank">See How It Works (Free) →</a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- No-Email Success (PDF Free) -->
-    <div class="wizard-screen" data-screen="noEmailSuccess">
-      <div class="wizard-card">
-        <div class="wizard-success">
-          <div class="wizard-success-icon">📄</div>
-          <h2>PDF Ready</h2>
-          <p>Your response has been generated. You can download it below.</p>
-          <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:12px;">Don't forget to submit to the NMC at <a href="https://www.nmc.org.uk" target="_blank">nmc.org.uk</a> when the consultation opens.</p>
-          <div class="wizard-success-buttons">
-            <button class="wizard-success-btn wizard-success-btn-primary" onclick="generatePDF()">📄  Download PDF</button>
-            <button class="wizard-success-btn wizard-success-btn-secondary" onclick="showScreen('landing')">Start Over</button>
           </div>
           
           <div class="wizard-upsell">
@@ -754,42 +728,9 @@ function editQuestion(themeIdx, itemIdx) {
   renderCurrentQuestion();
 }
 
-async function handleEmailSubmit() {
-  const email = document.getElementById('emailInput').value.trim();
-  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-  
-  const draft = {
-    answers: state.answers, email: email, currentTheme: state.currentTheme,
-    currentItem: state.currentItem, savedAt: new Date().toISOString()
-  };
-  
-  localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
-  
-  // Save to server (best-effort)
-  try {
-    await fetch('/api/consultation-save', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: email,
-        answers: state.answers,
-        currentTheme: state.currentTheme,
-        currentItem: state.currentItem,
-        createdAt: new Date().toISOString()
-      })
-    });
-  } catch(e) {
-    console.log('Server save unavailable — draft saved locally');
-  }
-  
-  document.getElementById('successEmail').textContent = email;
-  showScreen('success');
-  gtag('event', 'consultation_draft_saved', { email: email });
-}
-
-function handleSkipEmail() {
-  showScreen('noEmailSuccess');
-  gtag('event', 'consultation_pdf_downloaded');
+function handleDone() {
+  showScreen('done');
+  gtag('event', 'consultation_completed');
 }
 
 function generatePDF() {
