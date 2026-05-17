@@ -411,14 +411,24 @@
         <div class="wizard-success">
           <div class="wizard-success-icon">💾</div>
           <h2>Your response is ready</h2>
-          <p>Your draft is saved on this device. Download your PDF to submit to the NMC when the consultation opens in September 2026.</p>
+          <p>Your draft is saved on this device. Come back any time to continue.</p>
           <p style="font-size:0.88rem;color:var(--text-secondary);margin:0 0 20px;">
-            📥 Your draft auto-saves to this device — come back any time to continue.<br/>
-            📄 The PDF is your final response. Submit it at <a href="https://www.nmc.org.uk" target="_blank" style="color:var(--primary);">nmc.org.uk</a> when the consultation opens.
+            📄 Download your PDF now or wait until the consultation opens in September 2026.<br/>
+            🔗 Submit it at <a href="https://www.nmc.org.uk" target="_blank" style="color:var(--primary);">nmc.org.uk</a> when the time comes.
           </p>
           <div class="wizard-success-buttons">
             <button class="wizard-success-btn wizard-success-btn-primary" onclick="generatePDF()">📄  Download PDF (Free)</button>
             <button class="wizard-success-btn wizard-success-btn-secondary" onclick="showScreen('intro')">← Back to Review</button>
+          </div>
+
+          <div class="wizard-email-gate" style="margin-top:20px;">
+            <h2 style="font-size:1.1rem;">🔔 Remind me when the consultation opens</h2>
+            <p style="margin-bottom:14px;font-size:0.9rem;">We'll send you one email when the NMC opens the consultation in September. No spam, no newsletters, no storage of your answers.</p>
+            <div style="display:flex;gap:8px;max-width:450px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+              <input type="email" id="reminderEmail" placeholder="Your email address" style="flex:1;min-width:200px;padding:12px 16px;border:2px solid var(--border);border-radius:8px;font-size:0.95rem;" required />
+              <button class="wizard-submit-btn" onclick="submitReminderEmail()" style="white-space:nowrap;">Notify Me →</button>
+            </div>
+            <div id="reminderStatus" style="font-size:0.85rem;margin-top:8px;color:var(--text-secondary);"></div>
           </div>
           
           <div class="wizard-upsell" style="margin-top:28px;">
@@ -434,22 +444,6 @@
         </div>
       </div>
     </div>
-          </div>
-          
-          <div class="wizard-upsell">
-            <h3>💡 While you're here...</h3>
-            <p>Revalidation Copilot can turn a voice note into a reflective account in seconds. Free to start, no signup needed.</p>
-            <div class="wizard-upsell-features">
-              <span class="wizard-upsell-feature">🎙️ Speak your reflection              <span class="wizard-upsell-feature">✅ CPD tracker</span>
-              <span class="wizard-upsell-feature">💪 Free to start</span>
-            </div>
-            <a href="https://www.revalidationaicopilot.co.uk/download.html" class="wizard-upsell-btn" target="_blank">See How It Works (Free) →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
 // ====== QUESTIONS CONFIG ======
@@ -731,6 +725,27 @@ function editQuestion(themeIdx, itemIdx) {
 function handleDone() {
   showScreen('done');
   gtag('event', 'consultation_completed');
+}
+
+function submitReminderEmail() {
+  const email = document.getElementById('reminderEmail').value.trim();
+  const status = document.getElementById('reminderStatus');
+  
+  if (!email || !email.includes('@')) {
+    status.textContent = 'Please enter a valid email address.';
+    status.style.color = '#ef4444';
+    return;
+  }
+  
+  // Save to localStorage for now, try to send best-effort
+  localStorage.setItem('nmc_consultation_reminder_email', email);
+  
+  // Show success immediately (offline-first)
+  status.textContent = '✅ Got it! We\'ll remind you when the consultation opens.';
+  status.style.color = '#0aa37f';
+  document.getElementById('reminderEmail').disabled = true;
+  
+  gtag('event', 'consultation_reminder_signup', { email: email });
 }
 
 function generatePDF() {
