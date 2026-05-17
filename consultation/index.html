@@ -586,11 +586,13 @@ function startWizard() {
           state.answers = draft.answers;
           state.currentTheme = draft.currentTheme || 0;
           state.currentItem = draft.currentItem || 0;
+          renderCurrentQuestion();
+          return;
         }
       }
     } catch(e) {}
   }
-  renderCurrentQuestion();
+  showScreen('intro');
 }
 
 function startWizardFromIntro() {
@@ -752,14 +754,33 @@ function editQuestion(themeIdx, itemIdx) {
   renderCurrentQuestion();
 }
 
-function handleEmailSubmit() {
+async function handleEmailSubmit() {
   const email = document.getElementById('emailInput').value.trim();
   if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
   
-  localStorage.setItem(DRAFT_KEY, JSON.stringify({
+  const draft = {
     answers: state.answers, email: email, currentTheme: state.currentTheme,
     currentItem: state.currentItem, savedAt: new Date().toISOString()
-  }));
+  };
+  
+  localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+  
+  // Save to server (best-effort)
+  try {
+    await fetch('/api/consultation-save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        answers: state.answers,
+        currentTheme: state.currentTheme,
+        currentItem: state.currentItem,
+        createdAt: new Date().toISOString()
+      })
+    });
+  } catch(e) {
+    console.log('Server save unavailable — draft saved locally');
+  }
   
   document.getElementById('successEmail').textContent = email;
   showScreen('success');
