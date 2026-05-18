@@ -156,9 +156,11 @@
   .nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--text); display: flex; align-items: center; gap: 10px; text-decoration: none; letter-spacing: -0.02em; }
   .nav-logo img { height: 36px; width: 36px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
   .nav-logo span { color: var(--primary); }
-  .nav-links { margin-left: auto; display: flex; gap: 16px; font-size: 0.9rem; }
-  .nav-links a { color: var(--text-secondary); }
+  .nav-links { margin-left: auto; display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
+  .nav-links a { color: var(--text-secondary); white-space: nowrap; }
   .nav-links a:hover { color: var(--primary); }
+  .cta-link { text-decoration: none !important; }
+  .cta-link:hover { opacity: 0.9; }
   
   /* Hero */
   .hero { text-align: center; padding: 60px 20px 40px; max-width: 720px; margin: 0 auto; }
@@ -294,11 +296,13 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="/logo.png" alt="Revalidation Copilot" /> Revalidation <span>Copilot</span></a>
+    <a href="/" class="nav-logo"><img src="/logo.png" alt="Revalidation Copilot" style="height:38px;width:38px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);" /> Revalidation <span>Copilot</span></a>
     <div class="nav-links">
-      <a href="/blog/">Blog</a>
       <a href="/features.html">Features</a>
       <a href="/how-it-works.html">How It Works</a>
+      <a href="/blog/">Blog</a>
+      <a href="/consultation/" style="font-weight:600;color:#2563eb;">🏛️ Consultation</a>
+      <a href="/download.html" class="cta-link" style="background:#0aa37f;color:#fff;padding:6px 14px;border-radius:10px;font-weight:600;font-size:0.85rem;">Download App</a>
     </div>
   </div>
 </nav>
@@ -465,15 +469,15 @@
           </div>
           
           <div class="wizard-upsell" style="margin-top:28px;">
-            <h3>📱  Keep your revalidation organised — for free</h3>
-            <p>Log your CPD hours, track practice hours, store feedback, and build your portfolio in one place. Used by 100+ UK nurses.</p>
+            <h3>💪 You've prepped your consultation response. Now prep your revalidation.</h3>
+            <p>Log CPD hours by voice, draft reflections in 60 seconds, and track practice hours automatically. Used by <strong>100+ UK nurses</strong> — including nurses on the NMC's own working groups.</p>
             <div class="wizard-upsell-features">
-              <span class="wizard-upsell-feature">✅ CPD log</span>
-              <span class="wizard-upsell-feature">📁 Portfolio export</span>
-              <span class="wizard-upsell-feature">💪 Free to start</span>
+              <span class="wizard-upsell-feature">🎙️ Voice-to-reflection</span>
+              <span class="wizard-upsell-feature">📊 CPD + practice hour tracker</span>
+              <span class="wizard-upsell-feature">⚡ Free tier available</span>
               <span class="wizard-upsell-feature">⭐ Pro £12.99/yr</span>
             </div>
-            <a href="https://www.revalidationaicopilot.co.uk/download.html" class="wizard-upsell-btn" target="_blank">Download Free →</a>
+            <a href="https://www.revalidationaicopilot.co.uk/download.html" class="wizard-upsell-btn" target="_blank">Start Free →</a>
           </div>
         </div>
       </div>
@@ -814,11 +818,12 @@ function generatePDF() {
   const divider = '═══════════════════════════════════════════\n';
   const subDivider = '───────────────────────────────────────────\n';
   
-  let content = '';
+  // BOM ensures the file opens as UTF-8 in Excel/Notepad/TextEdit
+  let content = '\uFEFF';
   content += '                    NMC CONSULTATION\n';
   content += '                       RESPONSE\n';
   content += '\n';
-  content += '       Prepared with Revalidation Copilot\n';  
+  content += '       Prepared with Revalidation Copilot\n';
   content += '       revalidationaicopilot.co.uk\n';
   content += '\n';
   content += divider;
@@ -836,7 +841,9 @@ function generatePDF() {
       let display = state.answers[item.id];
       if (Array.isArray(display)) display = display.join(', ');
       if (display === undefined || display === null || display === '') display = '[No response provided]';
-      content += item.question + '\n';
+      // Strip emoji from user answers too
+      display = stripEmoji(display);
+      content += stripEmoji(item.question) + '\n';
       content += '  -> ' + display + '\n\n';
     });
     content += subDivider;
