@@ -279,7 +279,16 @@
   .modal-close { background: var(--primary); color: white; padding: 10px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
   
   /* Mobile */
-  @media (max-width: 600px) {
+  /* Hamburger menu toggle */
+  .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text); padding: 4px 8px; margin-left: auto; }
+  .nav-toggle:focus { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+  
+  @media (max-width: 680px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--card); border-bottom: 1px solid var(--border); padding: 12px 20px 16px; gap: 8px; box-shadow: var(--shadow-lg); }
+    .nav-links.open { display: flex; }
+    .nav-links a { width: 100%; }
+    .nav-links .cta-link { text-align: center; }
+    .nav-toggle { display: block; }
     .hero h1 { font-size: 1.6rem; }
     .hero .cta { width: 100%; justify-content: center; }
     .steps { grid-template-columns: 1fr; }
@@ -297,6 +306,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="/logo.png" alt="Revalidation Copilot" style="height:38px;width:38px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);" /> Revalidation <span>Copilot</span></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <div class="nav-links">
       <a href="/features.html">Features</a>
       <a href="/how-it-works.html">How It Works</a>
@@ -874,6 +884,26 @@ function autoSave() {
 }
 
 window.addEventListener('beforeunload', autoSave);
+
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.getElementById('navToggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      var isOpen = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.textContent = isOpen ? '✕' : '☰';
+    });
+    links.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = '☰';
+      });
+    });
+  }
+});
 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
