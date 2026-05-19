@@ -192,4 +192,18 @@
     <priority>1.0</priority>
   </url>
 
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-reflective-discussion.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/revalidation-ai-copilot-guide.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
