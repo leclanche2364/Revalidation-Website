@@ -206,4 +206,18 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-confirmer-guide.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-newly-qualified-nurses.html</loc>
+    <lastmod>2026-05-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>
