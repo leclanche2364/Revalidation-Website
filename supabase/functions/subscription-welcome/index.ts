@@ -1,21 +1,38 @@
-import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
+import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from "jsr:@supabase/supabase-js@2";
 
-const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY') ?? ''
-const FROM_EMAIL = 'Revalidation Copilot <noreply@mail.revalidationaicopilot.co.uk>'
+type Json = Record<string, unknown>;
 
-serve(async (req) => {
-  if (req.method !== 'POST') return new Response('Method not allowed', { status: 405 })
+const corsHeaders: Record<string, string> = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type, x-api-key",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+};
 
-  const { email, first_name, display_name } = await req.json()
+const PRODUCT_ID = "revalidation_pro_yearly";
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
+const FROM_EMAIL = "Revalidation Copilot <noreply@mail.revalidationaicopilot.co.uk>";
 
-  if (!email || !email.includes('@')) {
-    return new Response(JSON.stringify({ error: 'Valid email required' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    })
+function json(status: number, body: Json) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      ...corsHeaders,
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+function asString(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+async function sendWelcomeEmail(email: string, name: string): Promise<void> {
+  if (!RESEND_API_KEY) {
+    console.log("No RESEND_API_KEY set — skipping welcome email");
+    return;
   }
-
-  const name = first_name || display_name || 'there'
 
   const html = `
 <!DOCTYPE html>
@@ -58,33 +75,178 @@ serve(async (req) => {
 </body>
 </html>`
 
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
     headers: {
-      'Authorization': `Bearer ${RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
+      "Authorization": `Bearer ${RESEND_API_KEY}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       from: FROM_EMAIL,
       to: email,
-      subject: 'Welcome to Revalidation Copilot Pro 🎉',
+      subject: "Welcome to Revalidation Copilot Pro 🎉",
       html,
     }),
   })
 
   if (!res.ok) {
     const errText = await res.text()
-    console.error('Resend error:', res.status, errText)
-    return new Response(JSON.stringify({ error: `Send failed: ${res.status}` }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    })
+    console.error("Resend error:", res.status, errText)
+  } else {
+    const data = await res.json()
+    console.log("Welcome email sent:", data.id)
+  }
+}
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") {
+    return new Response("ok", { headers: corsHeaders });
   }
 
-  const data = await res.json()
-  console.log('Welcome email sent:', data.id)
-  return new Response(JSON.stringify({ sent: true, id: data.id }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  })
-})
+  if (req.method !== "POST") {
+    return json(405, {
+      ok: false,
+      code: "METHOD_NOT_ALLOWED",
+      message: "Only POST is allowed.",
+    });
+  }
+
+  try {
+    const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY") ?? "";
+    const authHeader = req.headers.get("Authorization") ?? "";
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      return json(500, {
+        ok: false,
+        code: "MISSING_ENV",
+        message: "Supabase environment variables are missing.",
+      });
+    }
+
+    if (!authHeader) {
+      return json(401, {
+        ok: false,
+        code: "NOT_AUTHENTICATED",
+        message: "Missing Authorization header.",
+      });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+      global: {
+        headers: {
+          Authorization: authHeader,
+        },
+      },
+    });
+
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    const userId = userData?.user?.id;
+
+    if (userError || !userId) {
+      return json(401, {
+        ok: false,
+        code: "NOT_AUTHENTICATED",
+        message: "Please sign in to continue.",
+        detail: userError?.message ?? null,
+      });
+    }
+
+    const body = await req.json().catch(() => ({}));
+    const productId = asString(body?.productId);
+    const platform = asString(body?.platform).toLowerCase();
+    const purchaseId = asString(body?.purchaseId);
+    const purchaseToken = asString(body?.purchaseToken);
+
+    if (productId !== PRODUCT_ID) {
+      return json(400, {
+        ok: false,
+        code: "INVALID_PRODUCT",
+        message: "Unknown productId.",
+      });
+    }
+
+    if (platform !== "android" && platform !== "ios") {
+      return json(400, {
+        ok: false,
+        code: "INVALID_PLATFORM",
+        message: "Platform must be ios or android.",
+      });
+    }
+
+    if (!purchaseToken) {
+      return json(400, {
+        ok: false,
+        code: "MISSING_PURCHASE_TOKEN",
+        message: "Missing purchase token.",
+      });
+    }
+
+    const expiresAt = new Date(
+      Date.now() + 365 * 24 * 60 * 60 * 1000,
+    ).toISOString();
+
+    // Optional billing log. Ignore failure if table does not exist yet.
+    try {
+      await supabase.from("billing_transactions").insert({
+        user_id: userId,
+        product_id: productId,
+        platform,
+        purchase_id: purchaseId || null,
+        purchase_token: purchaseToken,
+        status: "activated_v1",
+        expires_at: expiresAt,
+      });
+    } catch (_) {
+      // ignore logging failure
+    }
+
+    const { data: profile, error: profileError } = await supabase
+      .from("profiles")
+      .upsert(
+        {
+          id: userId,
+          is_paid: true,
+          paid_expires_at: expiresAt,
+        },
+        { onConflict: "id" },
+      )
+      .select("id, is_paid, paid_expires_at, email, first_name, display_name")
+      .single();
+
+    if (profileError || !profile) {
+      return json(500, {
+        ok: false,
+        code: "PROFILE_UPDATE_FAILED",
+        message: "Could not activate subscription.",
+        detail: profileError?.message ?? "No profile row returned.",
+      });
+    }
+
+    // Send welcome email in the background (don't block the response)
+    if (profile.email) {
+      const name = profile.first_name || profile.display_name || "there";
+      sendWelcomeEmail(profile.email, name);
+    }
+
+    return json(200, {
+      ok: true,
+      code: "OK",
+      message: "Subscription activated.",
+      profile,
+      meta: {
+        productId,
+        platform,
+        purchaseId: purchaseId || null,
+        expiresAt,
+      },
+    });
+  } catch (error) {
+    return json(500, {
+      ok: false,
+      code: "UNEXPECTED",
+      message: "Unexpected error occurred.",
+      detail: String(error),
+    });
+  }
+});
