@@ -1,7 +1,7 @@
 import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY') ?? ''
-const FROM_EMAIL = 'Revalidation Copilot <hello@revalidationaicopilot.co.uk>'
+const FROM_EMAIL = 'Revalidation Copilot <noreply@mail.revalidationaicopilot.co.uk>'
 
 serve(async (req) => {
   if (req.method !== 'POST') return new Response('Method not allowed', { status: 405 })
