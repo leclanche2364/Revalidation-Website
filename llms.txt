@@ -1,23 +1,25 @@
 # Revalidation Copilot
 
-> An AI-powered app that helps UK nurses complete their NMC revalidation — reflective accounts, CPD tracking, practice hours, feedback, and reflective discussion notes, all in one place.
+> An AI-powered app that helps UK nurses and midwives complete their NMC revalidation — reflective accounts, CPD tracking, practice hours, feedback storage, and reflective discussion notes, all in one place.
 
 ## What it does
 
-- **Generates NMC-compliant reflective accounts** — speak or type your experience, the app structures it into the NMC format with Code connections, ready to review and export
-- **Tracks CPD hours** — log participatory and non-participatory CPD, see running totals against the 35-hour requirement
-- **Calculates practice hours** — enter your date range and contracted schedule, the app works out your total automatically
-- **Organises feedback and reflective discussion notes** — keep everything for your 3-year cycle in one dashboard
-- **Supports the NMC Code** — reflections auto-link to the four themes: prioritise people, practise effectively, preserve safety, promote professionalism and trust
+- **Generates NMC-compliant reflective accounts** — speak or type your experience, the app structures it into the NMC format with Code theme connections, ready to review and export
+- **Tracks CPD hours** — log participatory and non-participatory CPD, see running totals against the 35-hour requirement (including the 20 hours participatory minimum)
+- **Calculates practice hours** — enter your date range and contracted hours, the app works out your total automatically against the 450-hour requirement
+- **Organises feedback and reflective discussion notes** — keep everything for your 3-year revalidation cycle in one dashboard
+- **Auto-links to the NMC Code** — reflections automatically identify the best Code theme match: Prioritise People, Practise Effectively, Preserve Safety, or Promote Professionalism and Trust
+- **Portfolio export** — export completed reflective accounts as PDF for submission
 
 ## Who it's for
 
-UK nurses, midwives, and nursing associates on the NMC register who want to complete revalidation without last-minute stress.
+UK nurses, midwives, and nursing associates on the NMC register who want to complete revalidation without last-minute stress. Particularly useful for nurses managing revalidation alongside full-time clinical work.
 
 ## Pricing
 
 - Free to try (1 free AI generation, full dashboard access)
 - £12.99/year for unlimited AI generations, save and export
+- See full pricing details: https://www.revalidationaicopilot.co.uk/pricing.md
 
 ## Key pages
 
@@ -25,20 +27,41 @@ UK nurses, midwives, and nursing associates on the NMC register who want to comp
 - How it works: https://www.revalidationaicopilot.co.uk/how-it-works.html
 - Features: https://www.revalidationaicopilot.co.uk/features.html
 - Blog: https://www.revalidationaicopilot.co.uk/blog/
+- Download: https://www.revalidationaicopilot.co.uk/download.html
+- Support: https://www.revalidationaicopilot.co.uk/support.html
 - Privacy: https://www.revalidationaicopilot.co.uk/privacy.html
 - Terms: https://www.revalidationaicopilot.co.uk/terms.html
+- Contact: https://www.revalidationaicopilot.co.uk/contact.html
+- Affiliates: https://www.revalidationaicopilot.co.uk/affiliates.html
+- Consultation: https://www.revalidationaicopilot.co.uk/consultation/
 
 ## Blog articles
 
-- How to Write Reflective Accounts (With Examples): https://www.revalidationaicopilot.co.uk/blog/how-to-write-reflective-accounts-nursing.html
-- NMC Revalidation: A Complete Step-by-Step Guide: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-step-by-step-guide.html
-- What Counts as CPD for NMC Revalidation (35 Hours Explained): https://www.revalidationaicopilot.co.uk/blog/what-counts-as-cpd-for-nmc-revalidation.html
-- 450 Practice Hours — Do You Really Need to Track Every Single One?: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-practice-hours.html
 - What is NMC Revalidation? (Beginner's Guide): https://www.revalidationaicopilot.co.uk/blog/what-is-nmc-revalidation.html
+- NMC Revalidation: A Complete Step-by-Step Guide: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-step-by-step-guide.html
 - NMC Revalidation Checklist 2026: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-checklist-2026.html
+- 450 Practice Hours — Do You Really Need to Track Every Single One?: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-practice-hours.html
+- How to Write Reflective Accounts (With Examples): https://www.revalidationaicopilot.co.uk/blog/how-to-write-reflective-accounts-nursing.html
+- What Counts as CPD for NMC Revalidation (35 Hours Explained): https://www.revalidationaicopilot.co.uk/blog/what-counts-as-cpd-for-nmc-revalidation.html
 - NMC Code of Conduct: 4 Themes Explained with Examples: https://www.revalidationaicopilot.co.uk/blog/nmc-code-conduct-nurses-themes-explained.html
+- How to Link Reflective Accounts to the NMC Code — Theme-by-Theme Guide: https://www.revalidationaicopilot.co.uk/blog/nmc-code-reflective-account-guide.html
 - What is NMC AI? How AI Helps UK Nurses with Revalidation: https://www.revalidationaicopilot.co.uk/blog/what-is-nmc-ai-revalidation.html
+- NMC Revalidation Changes 2026: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-changes-2026.html
+- NMC Revalidation Forms 2026: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-forms-2026.html
+- 5 Common NMC Revalidation Mistakes: https://www.revalidationaicopilot.co.uk/blog/5-common-nmc-revalidation-mistakes.html
+- NMC Revalidation Employer Roundtable Proposals: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-employer-roundtable-proposals.html
+- Can I Do NMC Revalidation Online?: https://www.revalidationaicopilot.co.uk/blog/can-i-do-nmc-revalidation-online.html
+- How Soon Can I Revalidate with NMC?: https://www.revalidationaicopilot.co.uk/blog/how-soon-can-i-revalidate-with-nmc.html
+- Why Do Nurses Revalidate Every 3 Years?: https://www.revalidationaicopilot.co.uk/blog/why-do-nurses-revalidate-every-3-years.html
+- How to Use Gibbs' Reflective Cycle for NMC Revalidation: https://www.revalidationaicopilot.co.uk/blog/gibbs-reflective-cycle-nmc-revalidation.html
+- Best App for NMC Revalidation 2026: https://www.revalidationaicopilot.co.uk/blog/best-app-nmc-revalidation-2026.html
+- NMC Revalidation Reflective Discussion Guide: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-reflective-discussion.html
+- Revalidation AI Copilot — Product Guide: https://www.revalidationaicopilot.co.uk/blog/revalidation-ai-copilot-guide.html
+- NMC Revalidation Confirmer Guide: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-confirmer-guide.html
+- NMC Revalidation for Newly Qualified Nurses: https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-newly-qualified-nurses.html
 
 ## About
 
-Built by Beemal Innovation Ltd. Independent tool — not affiliated with, endorsed by, or approved by the Nursing and Midwifery Council (NMC).
+Built by Beemal Innovation Ltd. An independent tool — not affiliated with, endorsed by, or approved by the Nursing and Midwifery Council (NMC).
+
+Contact: https://www.revalidationaicopilot.co.uk/contact.html
