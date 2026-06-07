@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -8,25 +9,24 @@
   gtag('js', new Date());
   gtag('config', 'G-0CJ1TLM25S');
 </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta property="og:image" content="https://www.revalidationaicopilot.co.uk/og-image.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.revalidationaicopilot.co.uk/og-image.png" />
   <title>Revalidation Copilot | NMC Revalidation Support for Nurses</title>
   <meta name="description" content="Revalidation Copilot turns a voice note into a compliant NMC reflective account. Track CPD hours, practice hours, and feedback in one place." />
   <meta property="og:title" content="NMC Revalidation — stop dreading it. Reflections in 10 minutes, not an afternoon." />
   <meta property="og:description" content="Turns a voice note into a compliant NMC reflective account. Track CPD hours, practice hours, and feedback in one place." />
-  
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://www.revalidationaicopilot.co.uk/" />
-
-  <!-- JSON-LD: SoftwareApplication -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,301,400,401,500,501,700,701,900,901&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,20 +36,10 @@
     "applicationCategory": "HealthApplication",
     "description": "Revalidation Copilot helps UK nurses track CPD hours, practice hours, and convert voice notes into NMC-compliant reflective accounts.",
     "url": "https://www.revalidationaicopilot.co.uk/",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "GBP",
-      "availability": "https://schema.org/InStock"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Beemal Innovation Ltd"
-    }
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" },
+    "author": { "@type": "Organization", "name": "Beemal Innovation Ltd" }
   }
   </script>
-
-  <!-- FAQ Schema for AI Overview -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,1187 +48,655 @@
       {
         "@type": "Question",
         "name": "How does Revalidation Copilot help with reflective accounts?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You speak or type your experience and the AI drafts a structured NMC-compliant reflective account. You review, edit, and export it. No staring at a blank page."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "You speak or type your experience and the AI drafts a structured NMC-compliant reflective account. You review, edit, and export it. No staring at a blank page." }
       },
       {
         "@type": "Question",
         "name": "Can I track CPD hours in Revalidation Copilot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Log CPD hours including participatory and non-participatory learning, add certificates as evidence, and see running totals against the 35-hour NMC requirement."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Log CPD hours including participatory and non-participatory learning, add certificates as evidence, and see running totals against the 35-hour NMC requirement." }
       },
       {
         "@type": "Question",
         "name": "Is Revalidation Copilot free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, it is free to start. You get full dashboard access and one free AI generation. The Pro plan at £12.99/year unlocks unlimited AI generations, save, and export."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, it is free to start. You get full dashboard access and one free AI generation. The Pro plan at £12.99/year unlocks unlimited AI generations, save, and export." }
       },
       {
         "@type": "Question",
         "name": "Do you submit my portfolio to the NMC?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Revalidation Copilot is an organisational tool. Your portfolio stays with you. You submit your revalidation directly to the NMC through MyNMC (the NMC's new portal, which replaced NMC Online in February 2026)."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Revalidation Copilot is an organisational tool. Your portfolio stays with you. You share it with your confirmer for your reflective discussion and keep it for audit purposes." }
       }
     ]
   }
   </script>
-
   <style>
     :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --surface-alt: #eef4f7;
-      --text: #183247;
-      --muted: #5f7384;
-      --primary: #1b3a57;
-      --primary-2: #244c70;
-      --accent: #0aa37f;
-      --accent-2: #dff6ef;
-      --border: #dbe6ee;
-      --shadow: 0 10px 30px rgba(27, 58, 87, 0.08);
-      --radius: 22px;
-      --container: 1180px;
+      --bg: #FDF8F4; --surface: #FFFFFF; --text: #1A1A2E; --muted: #6B6B80;
+      --primary: #B76E4E; --primary-dark: #8F5438; --accent: #2D6A4F;
+      --accent-light: #E5F2ED; --border: #E8DDD5; --radius: 20px; --container: 1120px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: 'Satoshi', 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.6;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-
+    h1, h2, h3, h4 { font-family: 'DM Serif Display', Georgia, serif; line-height: 1.15; letter-spacing: -0.01em; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    .container { width: min(100% - 2rem, var(--container)); margin: 0 auto; }
 
-    .container {
-      width: min(100% - 2rem, var(--container));
-      margin: 0 auto;
+    .progress-strip {
+      background: var(--accent-light); border-bottom: 1px solid #cfe8db; padding: 0.6rem 0;
     }
-
-    .announcement {
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
-      color: #fff;
-      text-align: center;
-      font-size: 0.95rem;
-      padding: 0.7rem 1rem;
+    .progress-strip .container { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .progress-stat { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+    .progress-stat .num { font-size: 1.05rem; font-weight: 800; }
+    .progress-stat .icon {
+      width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: #fff;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 0.65rem;
     }
 
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(219, 230, 238, 0.8);
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(253, 248, 244, 0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232, 221, 213, 0.6);
     }
-
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      min-height: 78px;
-    }
-
+    .navbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 68px; }
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      display: flex; align-items: center; gap: 0.7rem;
+      font-family: 'DM Serif Display', Georgia, serif; font-size: 1.15rem; font-weight: 700; color: var(--text);
     }
-
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: var(--shadow);
+      width: 36px; height: 36px; border-radius: 12px;
+      display: grid; place-items: center; color: #fff; font-size: 1rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 4px 12px rgba(183, 110, 78, 0.25);
     }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.3rem;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; padding: 0; margin: 0; color: var(--muted); font-weight: 500; font-size: 0.95rem; }
     .nav-links a:hover { color: var(--primary); }
-
-    .coming-soon {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      color: var(--muted);
-    }
-
-    .badge {
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.28rem 0.5rem;
-      border-radius: 999px;
-      background: var(--accent-2);
-      color: var(--accent);
-      white-space: nowrap;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 48px;
-      padding: 0 1.1rem;
-      border-radius: 14px;
-      border: 1px solid transparent;
-      font-weight: 700;
-      transition: 0.2s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      min-height: 46px; padding: 0 1.3rem; border-radius: 14px; border: 1px solid transparent;
+      font-weight: 700; font-size: 0.95rem; font-family: 'Satoshi','Inter',sans-serif;
+      transition: 0.2s ease; cursor: pointer;
     }
-
     .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(10, 163, 127, 0.2);
+      background: var(--primary); color: #fff;
+      box-shadow: 0 10px 20px rgba(183, 110, 78, 0.25);
     }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--primary);
-      border-color: var(--border);
-    }
-
-    .btn-secondary:hover { border-color: var(--primary); }
-
-    .menu-btn {
-      display: none;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 0.7rem 0.8rem;
-      font-weight: 700;
-    }
-
-    section { padding: 5.5rem 0; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(183, 110, 78, 0.3); }
+    .btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+    .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-ghost { background: transparent; border-color: transparent; color: var(--muted); }
+    .btn-ghost:hover { color: var(--text); }
+    .menu-btn { display: none; border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 0.6rem 0.8rem; font-weight: 700; font-size: 1.2rem; cursor: pointer; }
 
     .hero {
-      padding-top: 4.2rem;
-      padding-bottom: 4rem;
+      padding: 5rem 0 4.5rem; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -20%; right: -10%; width: 60%; height: 140%;
       background:
-        radial-gradient(circle at top right, rgba(10, 163, 127, 0.12), transparent 22%),
-        linear-gradient(to bottom, #ffffff, var(--bg));
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(183, 110, 78, 0.15), transparent),
+        radial-gradient(ellipse 50% 40% at 30% 60%, rgba(45, 106, 79, 0.1), transparent),
+        radial-gradient(ellipse 40% 40% at 80% 70%, rgba(143, 84, 56, 0.08), transparent);
+      border-radius: 50%; pointer-events: none; z-index: 0;
     }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 2rem;
-      align-items: center;
-    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-      background: var(--accent-2);
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.75rem; border-radius: 999px; background: var(--accent-light);
+      color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-bottom: 1.2rem;
+    }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); margin: 0 0 1.2rem; line-height: 1.08; letter-spacing: -0.02em; }
+    .hero h1 .highlight { color: var(--primary); font-style: italic; }
+    .hero-lead { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin: 0 0 1.8rem; line-height: 1.6; }
+    .hero-ctas { display: flex; gap: 0.8rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .hero-trust { display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); }
+    .hero-trust span { display: flex; align-items: center; gap: 0.35rem; }
+    .hero-trust .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+    .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; }
+    .hero-blob { position: absolute; border-radius: 50%; opacity: 0.6; }
+    .hero-blob-1 { width: 260px; height: 260px; background: radial-gradient(circle, rgba(183,110,78,0.2), transparent); top: -10%; right: 10%; animation: float 6s ease-in-out infinite; }
+    .hero-blob-2 { width: 180px; height: 180px; background: radial-gradient(circle, rgba(45,106,79,0.15), transparent); bottom: 5%; left: 5%; animation: float 8s ease-in-out infinite 1s; }
+    .hero-blob-3 { width: 140px; height: 140px; background: radial-gradient(circle, rgba(143,84,56,0.12), transparent); bottom: -5%; right: 20%; animation: float 7s ease-in-out infinite 0.5s; }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+    .phone-mock {
+      position: relative; z-index: 1; width: min(100%, 340px);
+      background: var(--surface); border-radius: 36px; padding: 1.5rem 1rem;
+      box-shadow: 0 20px 60px rgba(26,26,46,0.1), 0 0 0 1px rgba(232,221,213,0.5);
+      animation: float 5s ease-in-out infinite 0.3s;
+    }
+    .phone-mock .notch { width: 90px; height: 6px; background: #e0d8d0; border-radius: 999px; margin: 0 auto 1.2rem; }
+    .phone-dash-row { display: flex; align-items: center; gap: 0.7rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+    .phone-dash-row:last-child { border-bottom: none; }
+    .phone-dot { width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0; }
+    .phone-dot.green { background: var(--accent); }
+    .phone-dot.terracotta { background: var(--primary); }
+    .phone-dot.amber { background: #d4a373; }
+    .phone-bar { flex: 1; height: 8px; border-radius: 999px; background: var(--border); }
+    .phone-bar.fill { background: var(--accent); width: 70%; }
+
+    section { padding: 5rem 0; }
+    .section-centered { text-align: center; }
+    .section-label { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(2rem, 3.5vw, 3rem); margin: 0 0 1rem; }
+    .section-sub { font-size: 1.1rem; color: var(--muted); max-width: 580px; margin: 0 auto 3rem; text-align: center; }
+
+    .pain-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .pain-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .pain-icon { font-size: 1.5rem; flex-shrink: 0; width: 32px; text-align: center; }
+    .pain-item h4 { margin: 0 0 0.2rem; font-family: 'Satoshi','Inter',sans-serif; font-weight: 700; font-size: 1.05rem; }
+    .pain-item p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+
+    .timeline-visual { background: var(--bg); border-radius: var(--radius); padding: 2rem; border: 1px solid var(--border); }
+    .tl-row { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px dashed var(--border); }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-marker { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    .tl-marker.green { background: var(--accent); }
+    .tl-marker.amber { background: #d4a373; }
+    .tl-marker.red { background: #c2410c; }
+    .tl-label { flex: 1; font-size: 0.95rem; }
+    .tl-feeling { font-size: 0.85rem; color: var(--muted); }
+
+    .solution-check { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 1rem; }
+    .solution-check .check {
+      width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;
     }
 
-    h1, h2, h3 {
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin: 0 0 1rem;
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 1rem; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: 0.25s ease; }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,26,46,0.06); }
+    .step-num { font-family: 'DM Serif Display', Georgia, serif; font-size: 2.8rem; font-weight: 700; color: var(--primary); opacity: 0.5; line-height: 1; margin-bottom: 0.5rem; }
+    .step-card h3 { margin: 0 0 0.5rem; font-size: 1.3rem; }
+    .step-card p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+    .voice-flow { display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .voice-flow span { background: var(--accent-light); color: var(--accent); font-weight: 600; font-size: 0.8rem; padding: 0.3rem 0.7rem; border-radius: 999px; }
+    .voice-flow .arrow { color: var(--border); font-weight: 700; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .feat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; transition: 0.2s ease; }
+    .feat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,26,46,0.06); }
+    .feat-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; font-size: 1.2rem; margin-bottom: 0.8rem; }
+    .feat-icon.voice { background: #fdf2e9; color: var(--primary); }
+    .feat-icon.cpd { background: var(--accent-light); color: var(--accent); }
+    .feat-icon.feedback { background: #fef3c7; color: #b45309; }
+    .feat-icon.hours { background: #ede9fe; color: #6d28d9; }
+    .feat-icon.export { background: #fce7f3; color: #be185d; }
+    .feat-icon.dashboard { background: #e0f2fe; color: #0369a1; }
+    .feat-card h3 { margin: 0 0 0.3rem; font-family: 'Satoshi','Inter',sans-serif; font-weight: 700; font-size: 1.05rem; }
+    .feat-card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+    .testimonials-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
+    .testimonial-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem; }
+    .testimonial-card:nth-child(2) { margin-top: 2rem; }
+    .testimonial-stars { color: #d4a373; font-size: 1rem; margin-bottom: 0.8rem; letter-spacing: 2px; }
+    .testimonial-card blockquote { margin: 0 0 1rem; font-size: 0.95rem; line-height: 1.6; }
+    .testimonial-card blockquote p { margin: 0; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.6rem; }
+    .test-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 0.85rem; }
+    .test-name { font-weight: 700; font-size: 0.9rem; }
+    .test-role { font-size: 0.8rem; color: var(--muted); }
+    .test-badge { display: inline-block; font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 999px; background: #fef3c7; color: #b45309; font-weight: 600; }
+
+    .video-wrapper { max-width: 640px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(26,26,46,0.06); }
+    .video-wrapper iframe { width: 100%; aspect-ratio: 16 / 9; display: block; }
+    .video-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.7rem; border-radius: 999px; background: var(--accent-light); color: var(--accent); font-weight: 700; font-size: 0.8rem; margin-bottom: 1.5rem; }
+
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .blog-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: 0.2s ease; }
+    .blog-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,26,46,0.06); }
+    .blog-card .icon-circle { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 1.1rem; margin-bottom: 0.8rem; }
+    .blog-card h3 { margin: 0 0 0.4rem; font-family: 'Satoshi','Inter',sans-serif; font-weight: 700; font-size: 1rem; }
+    .blog-card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+    .blog-link { display: inline-block; margin-top: 2.5rem; font-weight: 700; color: var(--primary); }
+    .blog-link:hover { text-decoration: underline; }
+
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .split-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+    .split-card h3 { font-family: 'Satoshi','Inter',sans-serif; font-weight: 700; font-size: 1.1rem; margin: 0 0 1rem; }
+    .split-card ul { list-style: none; padding: 0; margin: 0; }
+    .split-card li { padding: 0.5rem 0; font-size: 0.92rem; display: flex; align-items: center; gap: 0.5rem; }
+    .split-card li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+    .split-card .btn { margin-top: 1rem; }
+    .tagline { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.4rem; font-style: italic; color: var(--primary); margin-top: 1rem; }
+
+    .cta-section { background: var(--accent); color: #fff; text-align: center; padding: 5rem 0; }
+    .cta-section h2 { font-size: clamp(2rem, 3.5vw, 3rem); margin: 0 0 1rem; color: #fff; }
+    .cta-section p { font-size: 1.1rem; opacity: 0.9; max-width: 500px; margin: 0 auto 2rem; }
+    .cta-section .btn-primary { background: #fff; color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+    .cta-section .btn-primary:hover { background: var(--accent-light); color: var(--accent); }
+
+    .site-footer { background: #1A1A2E; color: rgba(255,255,255,0.7); padding: 3rem 0 2rem; font-size: 0.9rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 2rem; }
+    .footer-brand { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.1rem; font-weight: 700; color: #fff; display: block; margin-bottom: 0.5rem; }
+    .footer-grid h4 { font-family: 'Satoshi','Inter',sans-serif; font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.8rem; }
+    .footer-grid ul { list-style: none; padding: 0; margin: 0; }
+    .footer-grid li { margin-bottom: 0.4rem; }
+    .footer-grid a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.82rem; flex-wrap: wrap; gap: 0.5rem; }
+    .footer-signature { font-weight: 600; }
+
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(253, 248, 244, 0.98); z-index: 2000;
+      flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; font-size: 1.3rem; font-weight: 700;
     }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu .close-btn { position: absolute; top: 1.2rem; right: 1.2rem; font-size: 1.5rem; border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 0.6rem 0.8rem; cursor: pointer; }
 
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.3rem);
-      max-width: 11ch;
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { order: -1; }
+      .phone-mock { width: min(100%, 280px); }
+      .pain-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .steps-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-card:nth-child(2) { margin-top: 0; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .split-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-actions .btn-ghost { display: none; }
+      .menu-btn { display: block; }
     }
-
-    h2 { font-size: clamp(2rem, 3vw, 3rem); }
-    h3 { font-size: 1.28rem; }
-
-    .lead {
-      font-size: 1.14rem;
-      color: var(--muted);
-      max-width: 58ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .trust-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .trust-points span::before {
-      content: "•";
-      color: var(--accent);
-      margin-right: 0.45rem;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 560px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .phone {
-      width: min(100%, 340px);
-      border-radius: 16px;
-      box-shadow: 0 24px 60px rgba(27, 58, 87, 0.18);
-      overflow: hidden;
-      position: relative;
-      z-index: 2;
-    }
-
-    .phone::before {
-      content: "";
-      width: 120px;
-      height: 18px;
-      background: #102433;
-      border-radius: 0 0 16px 16px;
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-
-    .phone img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .floating-card,
-    .step-card,
-    .feature-card,
-    .reason-card,
-    .trust-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .progress-pill {
-      display: inline-block;
-      padding: 0.28rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      background: var(--accent-2);
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-    }
-
-
-    .floating-card {
-      position: absolute;
-      width: 230px;
-      padding: 1rem;
-      z-index: 3;
-    }
-
-    .floating-top {
-      top: 55px;
-      right: 10px;
-    }
-
-    .floating-bottom {
-      bottom: 50px;
-      left: 0;
-    }
-
-    .section-head {
-      max-width: 760px;
-      margin: 0 auto 2.5rem;
-      text-align: center;
-    }
-
-    .section-head p {
-      color: var(--muted);
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .trust-grid,
-    .features-grid,
-    .reasons-grid,
-    .footer-grid {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .trust-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .trust-card,
-    .feature-card,
-    .reason-card {
-      padding: 1.35rem;
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 16px;
-      background: var(--accent-2);
-      color: var(--accent);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    .muted { color: var(--muted); }
-
-    .problem {
-      background: linear-gradient(180deg, #fff, #f9fcfd);
-    }
-
-    .problem-grid,
-    .privacy-grid,
-    .invite-grid,
-    .cta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .problem-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.2rem;
-    }
-
-    .problem-item {
-      display: flex;
-      gap: 0.9rem;
-      align-items: flex-start;
-      padding: 1rem 1.1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-    }
-
-    .tick {
-      flex: 0 0 34px;
-      height: 34px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: var(--accent-2);
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .checklist-card {
-      padding: 1.4rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .checklist-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 1.1rem 0 0;
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .checklist-card li {
-      padding: 0.95rem 1rem;
-      border-radius: 16px;
-      background: var(--surface-alt);
-      font-weight: 600;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 1rem;
-    }
-
-    .step-card {
-      padding: 1.25rem 1rem;
-      min-height: 210px;
-    }
-
-    .step-number {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 800;
-      margin-bottom: 0.9rem;
-    }
-
-    .features-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .screenshots {
-      background: linear-gradient(180deg, #ffffff, #f2f7fa);
-    }
-
-    .screenshots-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 1.2rem;
-    }
-
-    .shot-large,
-    .shot-stack > div {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 1.2rem;
-      min-height: 260px;
-    }
-
-    .shot-stack {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .reasons-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .privacy-card,
-    .invite-card,
-    .cta-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      padding: 1.6rem;
-    }
-
-    .privacy-list,
-    .invite-points {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .privacy-list li,
-    .invite-points li {
-      display: flex;
-      gap: 0.8rem;
-      align-items: flex-start;
-    }
-
-    .cta-wrap {
-      padding-top: 2rem;
-    }
-
-    .cta-card {
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      color: #fff;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .cta-card::after {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      right: -70px;
-      top: -90px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .cta-card .btn-secondary {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.18);
-      color: #fff;
-    }
-
-    .site-footer {
-      background: #0f2434;
-      color: rgba(255, 255, 255, 0.86);
-      padding: 4rem 0 2rem;
-    }
-
-    .footer-grid {
-      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
-      align-items: start;
-    }
-
-    .site-footer h4 {
-      color: #fff;
-      margin: 0 0 0.9rem;
-    }
-
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 0.6rem;
-      color: rgba(255, 255, 255, 0.72);
-    }
-
-    .footer-bottom {
-      margin-top: 2.2rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .problem-grid,
-      .privacy-grid,
-      .invite-grid,
-      .cta-grid,
-      .screenshots-grid,
-      .footer-grid,
-      .trust-grid,
-      .features-grid,
-      .reasons-grid,
-      .steps-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-visual {
-        min-height: 500px;
-      }
-
-      .footer-grid > :first-child {
-        grid-column: 1 / -1;
-      }
-
-      .nav-links {
-        position: absolute;
-        inset: 78px 1rem auto 1rem;
-        background: #fff;
-        border: 1px solid var(--border);
-        border-radius: 22px;
-        box-shadow: var(--shadow);
-        padding: 1rem;
-        flex-direction: column;
-        align-items: flex-start;
-        display: none;
-      }
-
-      .nav-links.open { display: flex; }
-      .menu-btn { display: inline-flex; }
-      .nav-actions .btn-primary { display: none; }
-    }
-
-    @media (max-width: 760px) {
-      section { padding: 4.2rem 0; }
-
-      .hero-grid,
-      .problem-grid,
-      .privacy-grid,
-      .invite-grid,
-      .cta-grid,
-      .screenshots-grid,
-      .trust-grid,
-      .features-grid,
-      .reasons-grid,
-      .steps-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .navbar {
-        min-height: 72px;
-      }
-
-      h1 { max-width: none; }
-      .hero-visual { min-height: auto; padding-top: 1rem; }
-      .phone { width: min(100%, 320px); }
-      .floating-card { position: static; width: 100%; margin-top: 1rem; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .trust-points { flex-direction: column; gap: 0.3rem; }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .progress-strip .container { gap: 1.2rem; }
     }
   </style>
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Revalidation Copilot",
-    "applicationCategory": "HealthApplication",
-    "operatingSystem": "iOS, Android",
-    "description": "Track CPD, write reflective accounts, and manage your NMC revalidation in one place.",
-    "offers": {
-      "@type": "Offer",
-      "price": "12.99",
-      "priceCurrency": "GBP",
-      "availability": "https://schema.org/InStock",
-      "description": "£12.99/year — unlimited AI generations, save & export"
-    },
-    "author": {
-      "@type": "Organization",
-      "name": "Beemal Innovation Ltd"
-    }
-  }
-  </script>
-
 </head>
 <body>
-  <div class="announcement">Trusted by 100+ UK nurses — 50+ NMC-compliant reflections already generated.</div>
 
-  <header class="site-header">
-    <div class="container navbar">
-      <a class="brand" href="#top" aria-label="Revalidation Copilot home">
-        <img src="/logo.png" alt="Revalidation Copilot" style="height:42px;width:42px;border-radius:14px;box-shadow:var(--shadow);" />
-        <span>Revalidation Copilot</span>
-      </a>
-
-      <button class="menu-btn" type="button" aria-label="Toggle menu" id="menuBtn">Menu</button>
-
-  <ul class="nav-links" id="navLinks">
-  <li><a href="/">Home</a></li>
-  <li><a href="features.html">Features</a></li>
-  <li><a href="how-it-works.html">How It Works</a></li>
-  <li><a href="affiliates.html">Affiliates</a></li>
-  <li><a href="#invite">Invite</a></li>
-  <li><a href="#support">Support</a></li>
-  <li><a href="blog/">Blog</a></li>
-  <li><a href="consultation/" style="font-weight:600;color:#2563eb;">🏛️ Consultation</a></li>
-  <li>  <li><a href="download.html" class="btn" style="background:#0aa37f;color:#fff;padding:0.5rem 1rem;border-radius:10px;font-weight:600;font-size:0.9rem;display:inline-block;width:auto;">Download App</a></li>
-  <span class="coming-soon">Web App <span class="badge">Coming Soon</span></span></li>
-</ul>
-
-      <div class="nav-actions">
-        <a class="btn btn-primary" href="#download">Download App</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">NMC Revalidation — sorted, before the panic sets in</div>
-          <h1>Stop dreading your revalidation. Your next reflective account takes 10 minutes, not an afternoon.</h1>
-          <p class="lead">Revalidation Copilot turns a voice note into a compliant NMC reflective account. Track your CPD hours, practice hours, and feedback in one place — and go into your revalidation knowing everything is in order.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#download">Start my revalidation record — free</a>
-            <a class="btn btn-secondary" href="#how-it-works">See how it works (2 min)</a>
-          </div>
-          <div class="trust-points">
-            <span>NMC-compliant reflective accounts</span>
-            <span>Voice-to-draft in seconds</span>
-            <span>Used by 100+ UK nurses</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="floating-card floating-top">
-            <div class="progress-pill">Reflection Draft</div>
-            <strong>AI-assisted drafting</strong>
-            <p class="muted" style="margin:0.45rem 0 0;">Turn notes into a clearer starting draft you can review and edit.</p>
-          </div>
-
-          <div class="phone">
-            <img src="/assets/dashboard-screen.jpg" alt="Revalidation Copilot dashboard showing CPD progress, feedback count, and reflective accounts" style="width:100%;height:auto;display:block;border-radius:12px;" />
-          </div>
-
-          <div class="floating-card floating-bottom">
-            <div class="progress-pill">Export Ready</div>
-            <strong>All your records together</strong>
-            <p class="muted" style="margin:0.45rem 0 0;">Keep entries accessible and easier to review before submission.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="trust-grid">
-          <div class="trust-card">
-            <div class="card-icon">?</div>
-            <h3>"Am I writing this correctly?"</h3>
-            <p class="muted">Every reflection is structured to NMC standards — the same requirements your reviewer will check against.</p>
-          </div>
-          <div class="trust-card">
-            <div class="card-icon">&gt;&gt;</div>
-            <h3>Reflections in minutes, not hours</h3>
-            <p class="muted">Speak your thoughts out loud. The AI drafts a structured, compliant account. You review and approve. That is it.</p>
-          </div>
-          <div class="trust-card">
-            <div class="card-icon">#</div>
-            <h3>Everything the NMC needs</h3>
-            <p class="muted">CPD hours, practice hours, written reflections, feedback records, supporting certificates. Ready to export.</p>
-          </div>
-          <div class="trust-card">
-            <div class="card-icon">@</div>
-            <h3>Built around your shifts</h3>
-            <p class="muted">Log CPD on your phone between patients. Record a reflection in the car park after a difficult shift. Your records wait where you left them.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section style="padding:2rem 0;background:linear-gradient(135deg, #eff6ff, #faf5ff);border-bottom:1px solid #e0e7ff;">
-      <div class="container" style="text-align:center;">
-        <div style="font-size:2.5rem;margin-bottom:0.5rem;">🏛️</div>
-        <h2 style="font-size:1.4rem;margin-bottom:0.5rem;">The NMC is rewriting the Code. Have your say.</h2>
-        <p style="color:#6b7280;max-width:600px;margin:0 auto 1rem;font-size:0.95rem;">The NMC Code and revalidation consultation opens September 2026. Prepare your response now with our free guided wizard. Takes 15 minutes, no account needed.</p>
-        <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
-          <a href="/consultation/" class="btn btn-primary" style="font-size:0.95rem;">🏛️  Start Preparing Your Response →</a>
-          <span style="display:inline-flex;align-items:center;gap:0.5rem;color:#6b7280;font-size:0.85rem;">⏱️ 15 min · 🔓 Free · 📧 No signup</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="problem">
-      <div class="container problem-grid">
-        <div>
-          <div class="eyebrow">The real challenge</div>
-          <h2>Most nurses leave revalidation until it becomes a crisis. That is not a character flaw — it is what happens when the process is this confusing.</h2>
-          <p class="lead">You know revalidation is coming. You have known for two years. But every time you open the NMC website, the forms feel unclear, the requirements blur together, and it goes back on the list.</p>
-          <div class="problem-list">
-            <div class="problem-item">
-              <div class="tick">✓</div>
-              <div><strong>Then three months out, it becomes urgent</strong><br><span class="muted">You are pulling together CPD records from notebooks, half a folder of emails, and certificates scattered everywhere.</span></div>
-            </div>
-            <div class="problem-item">
-              <div class="tick">✓</div>
-              <div><strong>Reflective accounts in one long weekend you resent</strong><br><span class="muted">Writing five reflections from scratch takes hours — and you are never sure they are structured right.</span></div>
-            </div>
-            <div class="problem-item">
-              <div class="tick">✓</div>
-              <div><strong>The quiet worry that you are doing it wrong</strong><br><span class="muted">That something will not be accepted. That you will have to do it again.</span></div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="checklist-card">
-            <div class="progress-pill">One organised workflow</div>
-            <h3>Revalidation Copilot was built to close all of that down</h3>
-            <p class="muted">It keeps your records as you go. It turns a two-minute voice note into a compliant reflective account. When your revalidation window opens, you are not starting from scratch — you are reviewing what is already done.</p>
-            <ul>
-              <li>Log CPD and practice-related learning</li>
-              <li>Save and organise feedback</li>
-              <li>Draft reflective accounts from a voice note</li>
-              <li>Track progress toward renewal</li>
-              <li>Prepare records for review and export</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how-it-works">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">How it works</div>
-          <h2>Three parts to revalidation. One place to complete them all.</h2>
-          <p>Heres exactly what happens when you use Revalidation Copilot — from first open to ready-to-submit.</p>
-        </div>
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">1</div>
-            <h3>Set your date</h3>
-            <p class="muted">Start with your revalidation deadline so your progress stays visible.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">2</div>
-            <h3>Log CPD</h3>
-            <p class="muted">Keep learning activities and practice-related development together.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">3</div>
-            <h3>Capture feedback</h3>
-            <p class="muted">Save meaningful feedback as you receive it instead of searching later.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">4</div>
-            <h3>Draft reflections</h3>
-            <p class="muted">Turn notes into a stronger starting point for reflective writing.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">5</div>
-            <h3>Organise evidence</h3>
-            <p class="muted">Keep supporting files and records accessible when you need them.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">6</div>
-            <h3>Track progress</h3>
-            <p class="muted">See what you have completed and where more work is needed.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">7</div>
-            <h3>Export records</h3>
-            <p class="muted">Prepare your information in a clearer format for review.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">See it in action</div>
-          <h2>Complete your revalidation in 30 minutes</h2>
-          <p>Watch a full walkthrough — from opening the app to having your records ready for submission.</p>
-        </div>
-        <div style="max-width: 720px; margin: 0 auto; border-radius: 22px; overflow: hidden; box-shadow: 0 10px 30px rgba(27, 58, 87, 0.12);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/XqpaEKFVhJM" title="NMC Revalidation Tutorial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Feature highlights</div>
-          <h2>Here is exactly what it does</h2>
-          <p>Each feature is focused on one thing: making revalidation less lonely, less confusing, and less last-minute.</p>
-        </div>
-        <div class="features-grid">
-          <article class="feature-card">
-            <div class="card-icon">CP</div>
-            <h3>CPD Tracker</h3>
-            <p class="muted">Record learning activity and keep your development history in one place.</p>
-          </article>
-          <article class="feature-card">
-            <div class="card-icon">FB</div>
-            <h3>Feedback Log</h3>
-            <p class="muted">Store valuable feedback so it is easier to revisit when reflecting on practice.</p>
-          </article>
-          <article class="feature-card">
-            <div class="card-icon">AI</div>
-            <h3>AI Reflective Drafting</h3>
-            <p class="muted">Speak your thoughts. The AI drafts a compliant reflective account. You review, edit, and own it.</p>
-          </article>
-          <article class="feature-card">
-            <div class="card-icon">EV</div>
-            <h3>Evidence Storage</h3>
-            <p class="muted">Keep files and supporting material more accessible throughout the cycle.</p>
-          </article>
-          <article class="feature-card">
-            <div class="card-icon">RM</div>
-            <h3>Reminders</h3>
-            <p class="muted">Stay aware of your timeline and avoid leaving key records until the end.</p>
-          </article>
-          <article class="feature-card">
-            <div class="card-icon">EX</div>
-            <h3>Export Pack</h3>
-            <p class="muted">Bring your entries together in a cleaner format that is ready to review before submission.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">From the blog</div>
-          <h2>Practical revalidation guides for UK nurses</h2>
-          <p>Step-by-step checklists, reflective account examples, NMC Code guidance, and everything else you need to get revalidation done.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.5rem;">
-          <a href="/blog/best-app-nmc-revalidation-2026.html" style="text-decoration:none;color:inherit;">
-            <article style="background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:1.4rem;box-shadow:var(--shadow);transition:0.2s;height:100%;">
-              <div style="width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:var(--accent-2);color:var(--accent);font-weight:800;margin-bottom:1rem;">🏆</div>
-              <h3 style="margin:0 0 0.5rem;font-size:1.15rem;">Best App for NMC Revalidation 2026</h3>
-              <p style="color:var(--muted);font-size:0.95rem;margin:0;">Why Revalidation Copilot is the top-rated app. CPD tracking, reflective accounts, portfolio export — all in one place.</p>
-            </article>
-          </a>
-          <a href="/blog/how-to-write-reflective-accounts-nursing.html" style="text-decoration:none;color:inherit;">
-            <article style="background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:1.4rem;box-shadow:var(--shadow);transition:0.2s;height:100%;">
-              <div style="width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:var(--accent-2);color:var(--accent);font-weight:800;margin-bottom:1rem;">📝</div>
-              <h3 style="margin:0 0 0.5rem;font-size:1.15rem;">How to Write Reflective Accounts for NMC Revalidation</h3>
-              <p style="color:var(--muted);font-size:0.95rem;margin:0;">Complete guide with real examples you can adapt. The highest-volume search in revalidation.</p>
-            </article>
-          </a>
-          <a href="/blog/nmc-revalidation-checklist-2026.html" style="text-decoration:none;color:inherit;">
-            <article style="background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:1.4rem;box-shadow:var(--shadow);transition:0.2s;height:100%;">
-              <div style="width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:var(--accent-2);color:var(--accent);font-weight:800;margin-bottom:1rem;">✅</div>
-              <h3 style="margin:0 0 0.5rem;font-size:1.15rem;">NMC Revalidation Checklist 2026</h3>
-              <p style="color:var(--muted);font-size:0.95rem;margin:0;">Track every requirement: practice hours, CPD, reflective accounts, feedback, discussion, and confirmer.</p>
-            </article>
-          </a>
-          <a href="/blog/nmc-revalidation-confirmer-guide.html" style="text-decoration:none;color:inherit;">
-            <article style="background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:1.4rem;box-shadow:var(--shadow);transition:0.2s;height:100%;">
-              <div style="width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:var(--accent-2);color:var(--accent);font-weight:800;margin-bottom:1rem;">🤝</div>
-              <h3 style="margin:0 0 0.5rem;font-size:1.15rem;">NMC Revalidation Confirmer Guide 2026</h3>
-              <p style="color:var(--muted);font-size:0.95rem;margin:0;">Who can confirm your revalidation, what they check, and how to prepare. Newly updated for 2026.</p>
-            </article>
-          </a>
-          <a href="/blog/nmc-revalidation-newly-qualified-nurses.html" style="text-decoration:none;color:inherit;">
-            <article style="background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:1.4rem;box-shadow:var(--shadow);transition:0.2s;height:100%;">
-              <div style="width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:var(--accent-2);color:var(--accent);font-weight:800;margin-bottom:1rem;">🎓</div>
-              <h3 style="margin:0 0 0.5rem;font-size:1.15rem;">Revalidation for Newly Qualified Nurses</h3>
-              <p style="color:var(--muted);font-size:0.95rem;margin:0;">First-time revalidation explained. When it starts, what you need, and how to prepare without the stress.</p>
-            </article>
-          </a>
-          <a href="/blog/what-counts-as-cpd-for-nmc-revalidation.html" style="text-decoration:none;color:inherit;">
-            <article style="background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:1.4rem;box-shadow:var(--shadow);transition:0.2s;height:100%;">
-              <div style="width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:var(--accent-2);color:var(--accent);font-weight:800;margin-bottom:1rem;">📚</div>
-              <h3 style="margin:0 0 0.5rem;font-size:1.15rem;">What Counts as CPD for NMC Revalidation?</h3>
-              <p style="color:var(--muted);font-size:0.95rem;margin:0;">The 35-hour requirement explained: participatory vs non-participatory learning with real examples.</p>
-            </article>
-          </a>
-        </div>
-        <div style="text-align:center;margin-top:2rem;">
-          <a href="/blog/" class="btn btn-secondary" style="font-size:0.95rem;">Read all guides →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="screenshots">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Product preview</div>
-          <h2>See it in action</h2>
-          <p>Your CPD log, reflection drafts, and progress dashboard — all in one app designed for shift workers.</p>
-        </div>
-        <div class="screenshots-grid">
-          <div class="shot-large">
-            <img src="/assets/dashboard-screen.jpg" alt="Revalidation Copilot dashboard" style="width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);" />
-          </div>
-          <div class="shot-stack">
-            <div>
-              <img src="/assets/cpd-main-screen.jpg" alt="CPD log screen" style="width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);" />
-            </div>
-            <div>
-              <img src="/assets/cpd-add-entry.jpg" alt="Add CPD entry screen" style="width:100%;border-radius:16px;border:1px solid var(--border);box-shadow:var(--shadow);" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">What nurses say</div>
-          <h2>"I do not have to think too much when using it."</h2>
-          <p>Built by a team that includes nurses, for nurses. The goal is not to replace your judgement — it is to make revalidation easier from start to finish.</p>
-        </div>
-        <div class="reasons-grid">
-          <div class="reason-card">
-            <div class="card-icon">01</div>
-            <h3>"Absolutely superb for reflections"</h3>
-            <p class="muted">"Also makes storing my CPD certificates easier and well organised." — Verified Google Play review</p>
-          </div>
-          <div class="reason-card">
-            <div class="card-icon">02</div>
-            <h3>"Very nice app for revalidation"</h3>
-            <p class="muted">— App Store review, 5 stars</p>
-          </div>
-          <div class="reason-card">
-            <div class="card-icon">03</div>
-            <h3>"Good app for nurses"</h3>
-            <p class="muted">"I do not have to think too much when using it." — Verified Play Store review</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container privacy-grid">
-        <div>
-          <div class="eyebrow">Privacy and responsibility</div>
-          <h2>Supportive AI, with you still in control</h2>
-          <p class="lead">The app is designed to support organisation and drafting, while keeping professional review and responsibility with the user.</p>
-          <ul class="privacy-list">
-            <li><span class="tick">✓</span><span>Avoid entering patient-identifiable information into records and drafts.</span></li>
-            <li><span class="tick">✓</span><span>Review, edit, and finalise any AI-assisted content before using it.</span></li>
-            <li><span class="tick">✓</span><span>Use the app as a support tool for record-keeping, not as a replacement for professional judgement.</span></li>
-          </ul>
-        </div>
-        <div class="privacy-card" id="support">
-          <div class="progress-pill">Need support?</div>
-          <h3>We are here to help</h3>
-          <p class="muted">Have a question about revalidation, the app, or your account? Visit our support page or read the privacy and terms to understand how your data is handled.</p>
-          <div class="hero-actions" style="margin-top:1.2rem; margin-bottom:0;">
-            <a class="btn btn-primary" href="support.html">Support</a>
-            <a class="btn btn-secondary" href="privacy.html">Privacy Policy</a>
-            <a class="btn btn-secondary" href="terms.html">Terms of Use</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="invite">
-      <div class="container invite-grid">
-        <div class="invite-card">
-          <div class="progress-pill">Invite a colleague</div>
-          <h2>Help another nurse stay organised</h2>
-          <p class="lead">Know a colleague working through revalidation too? Share your invite link and earn rewards when they join.</p>
-          <ul class="invite-points">
-            <li><span class="tick">1</span><span>Share your invite link with a colleague.</span></li>
-            <li><span class="tick">2</span><span>They sign up through a dedicated invite page.</span></li>
-            <li><span class="tick">3</span><span>You earn rewards for every successful referral.</span></li>
-          </ul>
-        </div>
-        <div>
-          <div class="eyebrow">Referral programme</div>
-          <h2>Refer a colleague, earn rewards</h2>
-          <p class="lead">Share the app with another nurse. When they sign up, you both get something extra. Head to the invite page to get your link.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="invite.html">Get Your Invite Link</a>
-            <a class="btn btn-secondary" href="#download">Download App</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-wrap" id="download">
-      <div class="container">
-        <div class="cta-card">
-          <div class="cta-grid">
-            <div>
-              <div class="eyebrow" style="background: rgba(255,255,255,0.12); color:#fff;">Get started</div>
-              <h2>Make revalidation less stressful</h2>
-              <p style="color: rgba(255,255,255,0.78); max-width: 55ch;">Keep your CPD, feedback, reflections, and supporting evidence together in one place with Revalidation Copilot.</p>
-            </div>
-            <div style="display:flex; justify-content:flex-end; align-items:center; gap:0.9rem; flex-wrap:wrap;">
-             <a 
-  class="btn btn-primary" 
-  href="https://apps.apple.com/gb/app/revalidation-ai-copilot/id6760566022"
-  target="_blank"
->
-  Download on App Store
-</a>
-
-<a 
-  class="btn btn-secondary" 
-  href="https://play.google.com/store/apps/details?id=com.beemal.revalidationcopilot&pcampaignid=web_share"
-  target="_blank"
->
-  Get it on Google Play
-</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="brand" style="margin-bottom:0.9rem; color:#fff;">
-            <img src="/logo.png" alt="Revalidation Copilot" style="height:42px;width:42px;border-radius:14px;" />
-            <span>Revalidation Copilot</span>
-          </div>
-          <p style="max-width: 34ch; margin:0; color: rgba(255,255,255,0.72);">A platform designed to help nurses stay organised for NMC revalidation with clearer records, helpful drafting support, and less last-minute stress.</p>
-        </div>
-
-        <div>
-          <h4>Product</h4>
-          <ul class="footer-links">
-            <li><a href="#top">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="affiliates.html">Affiliates</a></li>
-          </ul>
-        </div>
-
-      <div>
-  <h4>Resources</h4>
-  <ul class="footer-links">
-    <li><a href="blog/">Blog</a></li>
-    <li><a href="invite.html">Invite</a></li>
-    <li><a href="support.html">Support</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
+<div class="progress-strip">
+  <div class="container">
+    <div class="progress-stat"><span class="icon">✓</span> <span class="num">100+</span> UK nurses using it</div>
+    <div class="progress-stat"><span class="icon">★</span> <span class="num">50+</span> NMC reflections generated</div>
+    <div class="progress-stat"><span class="icon">★</span> <span class="num">4.8</span> average rating</div>
+  </div>
 </div>
 
-        <div>
-          <h4>Legal</h4>
-          <ul class="footer-links">
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms</a></li>
-          </ul>
-        </div>
+<header class="site-header">
+  <div class="container">
+    <div class="navbar">
+      <a href="/" class="brand">
+        <span class="brand-mark">R</span>
+        Revalidation Copilot
+      </a>
+      <ul class="nav-links">
+        <li><a href="/features.html">Features</a></li>
+        <li><a href="/blog/">Guides</a></li>
+        <li><a href="/support.html">Support</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/download.html" class="btn btn-primary">Download Free</a>
+        <button class="menu-btn" onclick="document.getElementById('mobile-menu').classList.toggle('open')">☰</button>
+      </div>
+    </div>
+  </div>
+</header>
 
-        <div>
-          <h4>Platform</h4>
-          <ul class="footer-links">
-            <li>Web App <span class="badge">Coming Soon</span></li>
-          </ul>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="close-btn" onclick="this.parentElement.classList.remove('open')">✕</button>
+  <a href="/features.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Features</a>
+  <a href="/blog/" onclick="this.closest('.mobile-menu').classList.remove('open')">Guides</a>
+  <a href="/support.html" onclick="this.closest('.mobile-menu').classList.remove('open')">Support</a>
+  <a href="/download.html" class="btn btn-primary" onclick="this.closest('.mobile-menu').classList.remove('open')">Download Free</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal visible">
+        <div class="eyebrow">✦ NMC Revalidation — sorted</div>
+        <h1>Your next reflective account takes <span class="highlight">10 minutes</span>, not an afternoon</h1>
+        <p class="hero-lead">Record a voice note after your shift. The AI drafts a compliant reflective account. Track CPD, practice hours, and feedback. Export your portfolio when you are ready.</p>
+        <div class="hero-ctas">
+          <a href="/download.html" class="btn btn-primary">Start free</a>
+          <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
+        </div>
+        <div class="hero-trust">
+          <span><span class="dot"></span> Free to start</span>
+          <span><span class="dot"></span> Pro at £12.99/yr</span>
+          <span><span class="dot"></span> No card needed</span>
         </div>
       </div>
-
-      <div class="footer-bottom">© 2026 Beemal Innovation. All rights reserved.</div>
+      <div class="hero-visual reveal visible reveal-delay-2">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+        <div style="position:relative;z-index:1">
+          <div class="phone-mock">
+            <div class="notch"></div>
+            <div class="phone-dash-row">
+              <div class="phone-dot green"></div>
+              <div class="phone-bar fill"></div>
+              <span style="font-size:0.75rem;color:var(--muted)">CPD: 28h</span>
+            </div>
+            <div class="phone-dash-row">
+              <div class="phone-dot terracotta"></div>
+              <div class="phone-bar"></div>
+              <span style="font-size:0.75rem;color:var(--muted)">Practice: 412h</span>
+            </div>
+            <div class="phone-dash-row">
+              <div class="phone-dot amber"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <span style="font-size:0.8rem;font-weight:700;color:var(--accent)">Voice reflection drafted ✓</span>
+                <span style="font-size:0.7rem;color:var(--muted)">Wed 3 Jun · ICU shift debrief</span>
+              </div>
+            </div>
+            <div class="phone-dash-row">
+              <div class="phone-dot green"></div>
+              <div class="phone-bar"></div>
+              <span style="font-size:0.75rem;color:var(--muted);font-weight:700;color:var(--accent)">5 reflections</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-blob hero-blob-3"></div>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
+<section class="pain-section" id="pain">
+  <div class="container">
+    <div class="pain-grid">
+      <div class="reveal">
+        <div class="section-label">👋 The problem</div>
+        <h2 class="section-title">Let us be honest. Revalidation paperwork is a slog.</h2>
+        <div class="pain-item">
+          <div class="pain-icon">⏰</div>
+          <div>
+            <h4>You already work 37.5 hours a week</h4>
+            <p>Finding another afternoon to write reflections after a 12-hour shift is not realistic. Most nurses put it off until the last month.</p>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">📄</div>
+          <div>
+            <h4>Blank page syndrome is real</h4>
+            <p>You know what you learned. Turning it into a structured reflective account that meets NMC standards is the hard part. Especially when you are exhausted.</p>
+          </div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-icon">📊</div>
+          <div>
+            <h4>Tracking CPD and hours across 3 years</h4>
+            <p>Scrolling through email inboxes, hunting down certificates, guessing how many hours you worked last year. It should not be this hard.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="section-label">✋ The reality</div>
+        <div class="timeline-visual">
+          <div class="tl-row">
+            <div class="tl-marker red"></div>
+            <span class="tl-label">Finish a 12-hour shift</span>
+            <span class="tl-feeling">Exhausted</span>
+          </div>
+          <div class="tl-row">
+            <div class="tl-marker amber"></div>
+            <span class="tl-label">Think about writing a reflection</span>
+            <span class="tl-feeling">Dread</span>
+          </div>
+          <div class="tl-row">
+            <div class="tl-marker amber"></div>
+            <span class="tl-label">Open a blank document</span>
+            <span class="tl-feeling">Stuck</span>
+          </div>
+          <div class="tl-row">
+            <div class="tl-marker green"></div>
+            <span class="tl-label">Record a 60-second voice note instead</span>
+            <span class="tl-feeling" style="color:var(--accent);font-weight:700">Done ✓</span>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:1.2rem;background:var(--accent-light);border-radius:14px;">
+          <div class="solution-check">
+            <span class="check">✓</span>
+            <div><strong>Reframe, don't write from scratch.</strong> You already did the hard part — you had the experience. The app turns what happened into a structured NMC-compliant account.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+<section id="how-it-works">
+  <div class="container section-centered">
+    <div class="section-label">⚡ How it works</div>
+    <h2 class="section-title">Three steps to a finished portfolio</h2>
+    <p class="section-sub">No training. No templates. No staring at a blank page.</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <h3>Record a voice note</h3>
+        <p>After your shift, speak freely about what happened. A critical incident, a new skill, a difficult conversation — anything you learned today.</p>
+        <div class="voice-flow">
+          <span>🎤 Voice</span>
+          <span class="arrow">→</span>
+          <span>✍️ Draft</span>
+        </div>
+      </div>
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <h3>Review & edit</h3>
+        <p>The AI drafts a structured NMC-compliant reflection using the 6-stage framework or your preferred model. You review, refine, and confirm it sounds like you.</p>
+        <div class="voice-flow">
+          <span>🤖 AI draft</span>
+          <span class="arrow">→</span>
+          <span>👤 You approve</span>
+        </div>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <h3>Export your portfolio</h3>
+        <p>Everything lives on your dashboard: CPD hours logged, practice hours tracked, reflections saved. When revalidation comes, export and share it with your confirmer.</p>
+        <div class="voice-flow">
+          <span>📊 Dashboard</span>
+          <span class="arrow">→</span>
+          <span>📤 Export</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section" id="testimonials">
+  <div class="container section-centered">
+    <div class="section-label">💬 What nurses say</div>
+    <h2 class="section-title">From dreading revalidation to keeping a running log</h2>
+    <p class="section-sub">Early users are using the app to reflect after shifts instead of cramming at the deadline.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote><p>I recorded a 90-second voice note after a difficult shift. The AI turned it into a proper reflective account. I just tweaked a few things and saved it. That would have taken me an hour before.</p></blockquote>
+        <div class="testimonial-author">
+          <div class="test-avatar">S</div>
+          <div>
+            <div class="test-name">Sarah</div>
+            <div class="test-role">ICU nurse, 8 years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote><p>I put off my reflection for 3 months because I thought I had to write it all in one go. Now I just do a voice note after a busy day. It adds up without feeling like homework.</p></blockquote>
+        <div class="testimonial-author">
+          <div class="test-avatar">J</div>
+          <div>
+            <div class="test-name">James</div>
+            <div class="test-role">A&E nurse, 5 years</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote><p>The CPD tracker alone saves me hours. I was keeping it all in a notebook before. Now I can see exactly where I am against the 35-hour requirement.</p></blockquote>
+        <div class="testimonial-author">
+          <div class="test-avatar">P</div>
+          <div>
+            <div class="test-name">Priya</div>
+            <div class="test-role">Ward nurse, 12 years</div>
+          </div>
+        </div>
+        <div style="margin-top:0.6rem"><span class="test-badge">Early adopter</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container section-centered">
+    <div class="section-label">🔧 Everything you need</div>
+    <h2 class="section-title">One dashboard for your whole revalidation</h2>
+    <p class="section-sub">CPD, practice hours, reflective accounts, feedback — all in one place.</p>
+    <div class="features-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon voice">🎤</div>
+        <h3>Voice-to-reflection</h3>
+        <p>Speak your experience. The AI drafts a structured NMC-compliant reflection. No typing required.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-icon cpd">📚</div>
+        <h3>CPD hour tracker</h3>
+        <p>Log participatory and non-participatory learning. Track totals against the 35-hour NMC requirement.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-1">
+        <div class="feat-icon hours">📋</div>
+        <h3>Practice hours log</h3>
+        <p>Record shifts and see running totals. No more calculating at the last minute.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-icon feedback">💬</div>
+        <h3>Feedback & PCF</h3>
+        <p>Log practice-related feedback and patient or colleague comments. Map to the Code or your objectives.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-2">
+        <div class="feat-icon export">📤</div>
+        <h3>Export when ready</h3>
+        <p>Download your portfolio for your confirmer discussion and NMC audit. No app lock-in.</p>
+      </div>
+      <div class="feat-card reveal reveal-delay-3">
+        <div class="feat-icon dashboard">📊</div>
+        <h3>Dashboard overview</h3>
+        <p>See all your progress at a glance. Know exactly where you stand before revalidation window opens.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pain-section" id="faq">
+  <div class="container section-centered">
+    <div class="section-label">❓ Common questions</div>
+    <h2 class="section-title">Quick answers</h2>
+    <p class="section-sub">Everything you want to know before downloading.</p>
+    <div style="max-width:700px;margin:0 auto;text-align:left">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem">
+        <h3 style="margin:0 0 0.5rem;font-family:'Satoshi','Inter',sans-serif;font-size:1.05rem">Is it free?</h3>
+        <p style="margin:0;color:var(--muted)">Yes. You get the full dashboard and one free AI generation. Pro is £12.99 per year for unlimited generations, save, and export. No monthly fees, no hidden costs.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem">
+        <h3 style="margin:0 0 0.5rem;font-family:'Satoshi','Inter',sans-serif;font-size:1.05rem">Do you submit my portfolio to the NMC?</h3>
+        <p style="margin:0;color:var(--muted)">No. Revalidation Copilot is an organisational tool. Your portfolio stays with you. You share it with your confirmer for your reflective discussion and keep it for audit purposes.</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem">
+        <h3 style="margin:0 0 0.5rem;font-family:'Satoshi','Inter',sans-serif;font-size:1.05rem">Can I use it alongside my existing systems?</h3>
+        <p style="margin:0;color:var(--muted)">Yes. Export your reflections and CPD log anytime. You are never locked in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2>Stop dreading revalidation</h2>
+    <p>One voice note at a time. Start free — no card needed.</p>
+    <a href="/download.html" class="btn btn-primary">Download the app →</a>
+    <div class="tagline" style="color:rgba(255,255,255,0.7);font-size:1rem;margin-top:1.5rem">Available on iOS and Android</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-brand">Revalidation Copilot</span>
+        <p style="margin:0.5rem 0 1rem;font-size:0.9rem">Built by a nurse, for nurses. Making NMC revalidation less painful, one reflection at a time.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/features.html">Features</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="/download.html">Download</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/blog/">Blog & guides</a></li>
+          <li><a href="/blog/nmc-revalidation-forms-2026.html">NMC forms 2026</a></li>
+          <li><a href="/blog/best-app-nmc-revalidation-2026.html">Best app guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support.html">Help centre</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li>Beemal Innovation Ltd</li>
+          <li>Cardiff, UK</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Beemal Innovation Ltd. All rights reserved.</span>
+      <span><span class="footer-signature">Built with care for UK nurses</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
+  }, { threshold: 0.15 });
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
-  </script>
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.getElementById('mobile-menu').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('open');
+  });
+</script>
+
 </body>
 </html>
