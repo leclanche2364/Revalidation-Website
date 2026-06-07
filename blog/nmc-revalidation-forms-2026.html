@@ -79,6 +79,10 @@
     .example-box { background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 1.2rem; margin: 1.5rem 0; }
     .example-box h4 { margin: 0 0 0.5rem; color: #c2410c; }
     .example-box p { margin: 0.3rem 0; }
+    .breadcrumb { font-size: 0.85rem; color: #5f7384; margin: 1rem 0 0; padding: 0.5rem 0; }
+    .breadcrumb a { color: #0aa37f; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb .sep { margin: 0 0.3rem; color: #b0c4d4; }
     @media (max-width: 600px) { .post-header h1 { font-size: 1.6rem; } .post-body { padding: 1.2rem; } .form-download { flex-wrap: wrap; } }
   </style>
 
@@ -109,6 +113,16 @@
 </header>
 
 <main class="container">
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumb" aria-label="You are here:">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <a href="/blog/">Blog</a>
+    <span class="sep">/</span>
+    <span style="color:#183247;font-weight:500;">NMC Revalidation Forms 2026</span>
+  </nav>
+
   <article>
     <div class="post-header">
       <div class="post-meta"><span>Forms & Templates</span> Updated 24 May 2026 &middot; 12 min read</div>
