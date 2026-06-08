@@ -171,21 +171,13 @@
     .hero-blob-3 { width: 140px; height: 140px; background: radial-gradient(circle, rgba(36,76,112,0.08), transparent); bottom: -5%; right: 20%; animation: float 7s ease-in-out infinite 0.5s; }
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-    .phone-mock {
       position: relative; z-index: 1; width: min(100%, 340px);
       background: var(--surface); border-radius: 36px; padding: 1.5rem 1rem;
       box-shadow: 0 20px 60px rgba(26,26,46,0.1), 0 0 0 1px rgba(232,221,213,0.5);
       animation: float 5s ease-in-out infinite 0.3s;
     }
-    .phone-mock .notch { width: 90px; height: 6px; background: #e0d8d0; border-radius: 999px; margin: 0 auto 1.2rem; }
-    .phone-dash-row { display: flex; align-items: center; gap: 0.7rem; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
-    .phone-dash-row:last-child { border-bottom: none; }
-    .phone-dot { width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0; }
-    .phone-dot.green { background: var(--accent); }
-    .phone-dot.terracotta { background: var(--primary-2); }
-    .phone-dot.amber { background: #0aa37f; }
-    .phone-bar { flex: 1; height: 8px; border-radius: 999px; background: var(--border); }
-    .phone-bar.fill { background: var(--accent); width: 70%; }
+    
+    
 
     section { padding: 5rem 0; }
     .section-centered { text-align: center; }
@@ -288,7 +280,6 @@
     .footer-grid li { margin-bottom: 0.4rem; }
     .footer-grid a:hover { color: #fff; }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.82rem; flex-wrap: wrap; gap: 0.5rem; }
-    .footer-signature { font-weight: 600; }
 
     .mobile-menu {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -307,7 +298,6 @@
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-visual { order: -1; }
-      .phone-mock { width: min(100%, 280px); }
       .pain-grid { grid-template-columns: 1fr; gap: 2rem; }
       .steps-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
       .features-grid { grid-template-columns: 1fr 1fr; }
@@ -391,38 +381,14 @@
           <span><span class="dot"></span> No card needed</span>
         </div>
       </div>
-      <div class="hero-visual reveal visible reveal-delay-2">
+            <div class="hero-visual reveal visible reveal-delay-2">
         <div class="hero-blob hero-blob-1"></div>
         <div class="hero-blob hero-blob-2"></div>
         <div class="hero-blob hero-blob-3"></div>
-        <div style="position:relative;z-index:1">
-          <div class="phone-mock">
-            <div class="notch"></div>
-            <div class="phone-dash-row">
-              <div class="phone-dot green"></div>
-              <div class="phone-bar fill"></div>
-              <span style="font-size:0.75rem;color:var(--muted)">CPD: 28h</span>
-            </div>
-            <div class="phone-dash-row">
-              <div class="phone-dot terracotta"></div>
-              <div class="phone-bar"></div>
-              <span style="font-size:0.75rem;color:var(--muted)">Practice: 412h</span>
-            </div>
-            <div class="phone-dash-row">
-              <div class="phone-dot amber"></div>
-              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
-                <span style="font-size:0.8rem;font-weight:700;color:var(--accent)">Voice reflection drafted ✓</span>
-                <span style="font-size:0.7rem;color:var(--muted)">Wed 3 Jun · ICU shift debrief</span>
-              </div>
-            </div>
-            <div class="phone-dash-row">
-              <div class="phone-dot green"></div>
-              <div class="phone-bar"></div>
-              <span style="font-size:0.75rem;color:var(--muted);font-weight:700;color:var(--accent)">5 reflections</span>
-            </div>
-          </div>
+        <div class="screenshot-frame hero-frame">
+          <div class="screenshot-notch"></div>
+          <img src="/images/app/dashboard.jpg" alt="Revalidation Copilot dashboard showing CPD progress, AI command centre, and shift tracking" class="app-screenshot" loading="eager">
         </div>
-        <div class="hero-blob hero-blob-3"></div>
       </div>
     </div>
   </div>
@@ -505,6 +471,12 @@
           <span>🎤 Voice</span>
           <span class="arrow">→</span>
           <span>✍️ Draft</span>
+        </div>
+        <div class="step-screenshot-wrapper">
+          <div class="screenshot-frame small">
+            <div class="screenshot-notch"></div>
+            <img src="/images/app/voice-reflection.jpg" alt="Voice-to-reflection feature with confidentiality check passed and generate draft button" class="app-screenshot" loading="lazy">
+          </div>
         </div>
       </div>
       <div class="step-card reveal reveal-delay-1">
@@ -590,6 +562,12 @@
         <div class="feat-icon cpd">📚</div>
         <h3>CPD hour tracker</h3>
         <p>Log participatory and non-participatory learning. Track totals against the 35-hour NMC requirement.</p>
+      </div>
+      <div class="feature-screenshot-wide">
+        <div class="screenshot-frame cpd-frame">
+          <div class="screenshot-notch"></div>
+          <img src="/images/app/cpd-tracker.jpg" alt="CPD tracker showing 39.5/35 hours completed with participatory and non-participatory breakdown" class="app-screenshot" loading="lazy">
+        </div>
       </div>
       <div class="feat-card reveal reveal-delay-1">
         <div class="feat-icon hours">📋</div>
