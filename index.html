@@ -171,13 +171,38 @@
     .hero-blob-3 { width: 140px; height: 140px; background: radial-gradient(circle, rgba(36,76,112,0.08), transparent); bottom: -5%; right: 20%; animation: float 7s ease-in-out infinite 0.5s; }
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-      position: relative; z-index: 1; width: min(100%, 340px);
-      background: var(--surface); border-radius: 36px; padding: 1.5rem 1rem;
-      box-shadow: 0 20px 60px rgba(26,26,46,0.1), 0 0 0 1px rgba(232,221,213,0.5);
+    /* Screenshot frames */
+    .screenshot-frame {
+      position: relative; z-index: 1;
+      background: var(--surface); border-radius: 20px; padding: 0.8rem;
+      box-shadow: 0 20px 60px rgba(26,26,46,0.12), 0 0 0 1px rgba(219, 230, 238, 0.6);
+    }
+    .screenshot-frame.hero-frame {
+      width: min(100%, 340px);
       animation: float 5s ease-in-out infinite 0.3s;
     }
-    
-    
+    .screenshot-frame.small {
+      width: min(100%, 260px);
+    }
+    .screenshot-frame.cpd-frame {
+      width: min(100%, 400px);
+    }
+    .screenshot-notch {
+      position: absolute; top: 0.8rem; left: 50%; transform: translateX(-50%);
+      width: 120px; height: 6px; border-radius: 0 0 6px 6px;
+      background: var(--text); opacity: 0.2; z-index: 2;
+    }
+    .app-screenshot {
+      border-radius: 14px;
+      width: 100%; height: auto;
+      display: block;
+    }
+    .step-screenshot-wrapper {
+      max-width: 320px; margin: 0 auto;
+    }
+    .feature-screenshot-wide {
+      max-width: 520px; margin: 0 auto;
+    }
 
     section { padding: 5rem 0; }
     .section-centered { text-align: center; }
@@ -313,6 +338,11 @@
       .features-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .progress-strip .container { gap: 1.2rem; }
+      .screenshot-frame { padding: 0.5rem; border-radius: 14px; }
+      .screenshot-frame.hero-frame { width: min(100%, 280px); }
+      .screenshot-frame.small { width: min(100%, 220px); }
+      .screenshot-frame.cpd-frame { width: min(100%, 320px); }
+      .app-screenshot { border-radius: 10px; }
     }
   </style>
 </head>
