@@ -12,7 +12,7 @@ If you've been following NMC announcements this year, you'll know 2026 is shapin
 
 In her International Nurses Day address, Andrea Sutcliffe (NMC Chief Executive) confirmed what many have been anticipating: **the NMC is modernising revalidation.** The consultation is live, and changes are coming to practice learning, the Code, and the wider revalidation process.
 
-Here's what's been announced so far, what's still being consulted on, and — most importantly — what it means for your next revalidation.
+Here's what's been announced so far, what's still being consulted on, and what it means for your next revalidation.
 
 ---
 
@@ -22,7 +22,7 @@ Here's what's been announced so far, what's still being consulted on, and — mo
 
 The NMC is consulting on proposals to strengthen practice learning for student nurses. The goal is to ensure the next generation of professionals enters the register with the knowledge, skills, and experience to meet future health and care needs.
 
-**This matters for revalidation because** — better-prepared colleagues entering the register means safer workplaces for everyone. But it also signals a shift in how the NMC thinks about competence and ongoing development. If they're tightening standards at the entry point, expect the requirements for existing registrants to follow.
+**This matters for revalidation because** better-prepared colleagues entering the register means safer workplaces for everyone. But it also signals a shift in how the NMC thinks about competence and ongoing development. If they're tightening standards at the entry point, expect the requirements for existing registrants to follow.
 
 ### 2. The Code and revalidation are under review
 
@@ -64,7 +64,7 @@ The scope of the Code review hasn't been fully detailed yet, but Sutcliffe's spe
 
 - The Code will likely address **AI and digital practice** more explicitly
 - **Anti-racist practice** will feature prominently
-- **Revalidation** itself may become more flexible — though what that means is still unclear
+- **Revalidation** itself may become more flexible, though what that means is still unclear
 
 ---
 
@@ -77,7 +77,7 @@ Here's my read on the direction of travel:
 | Code updates | More explicit guidance on AI, digital tools, and anti-racist practice |
 | Revalidation modernisation | Possible changes to CPD hour split, reflective account format, or submission frequency |
 | Anti-racist principles | Expect reflective accounts to need engagement with equity and inclusion |
-| Practice learning changes | Indirect — better-prepared colleagues, but no change to your revalidation requirements yet |
+| Practice learning changes | Indirect: better-prepared colleagues, but no change to your revalidation requirements yet |
 
 **The bottom line:** The fundamentals of revalidation (450 practice hours, 35 hours CPD, five reflective accounts, reflective discussion, confirmation) aren't changing *right now*. But the NMC has signalled that change is coming, and the themes are clear: **AI, equity, and flexibility.**
 
@@ -100,7 +100,7 @@ If you're planning your CPD for the next cycle, topics that will only become mor
 
 ### 3. Use tools that adapt with the changes
 
-This is where Revalidation Copilot comes in. As the NMC modernises revalidation, tools that help you organise CPD, write reflective accounts, and track your practice hours become more valuable — not less.
+This is where Revalidation Copilot comes in. As the NMC modernises revalidation, tools that help organise CPD, write reflective accounts, and track practice hours become even more valuable.
 
 When the consultation closes and the new requirements are published, we'll update our guidance and templates to match.
 

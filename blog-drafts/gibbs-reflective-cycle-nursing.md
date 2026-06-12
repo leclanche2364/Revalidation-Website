@@ -2,7 +2,7 @@
 
 **Don't have time to read the full guide? Here's the quick version:**
 
-Revalidation Copilot tracks your shifts, your CPD, your reflections — and with one tap, it turns your shift debrief into a structured, NMC-ready reflection using AI. Download free at [https://www.revalidationaicopilot.co.uk/#download](https://www.revalidationaicopilot.co.uk/#download). The full guide is below if you want the details.
+Revalidation Copilot tracks your shifts, your CPD, your reflections, and with one tap it turns your shift debrief into a structured, NMC-ready reflection using AI. Download free at [https://www.revalidationaicopilot.co.uk/#download](https://www.revalidationaicopilot.co.uk/#download). The full guide is below if you want the details.
 
 ---
 
@@ -29,7 +29,7 @@ The six stages are:
 
 Straightforward enough. But here's where most nurses go wrong: they treat it like a checklist rather than a narrative. A good Gibbs reflection reads like a short story with a lesson. A bad one reads like a police statement.
 
-"Structured reflection isn't about proving you can follow a template. It's about showing the NMC — and yourself — that you can learn from what you do every shift."
+"Structured reflection isn't about proving you can follow a template. It's about showing the NMC, and yourself, that you can learn from what you do every shift."
 
 ---
 
@@ -41,7 +41,7 @@ The NMC doesn't prescribe a specific reflective model. But their guidance says y
 - Have identified what you learned
 - Can explain how you'll apply that learning going forward
 
-Gibbs' cycle maps neatly onto all three. The **Analysis** and **Conclusion** stages cover what you learned. The **Action Plan** covers what you'll do next. And by grounding your reflection in a real situation — through the **Description** and **Evaluation** stages — you make it authentic rather than generic.
+Gibbs' cycle maps neatly onto all three. The **Analysis** and **Conclusion** stages cover what you learned. The **Action Plan** covers what you'll do next. And by grounding your reflection in a real situation, through the **Description** and **Evaluation** stages, you make it authentic rather than generic.
 
 The NMC assessors reading your portfolio aren't looking for literary brilliance. They're looking for evidence that you think about your practice. Gibbs gives you a framework to show that thinking clearly.
 
@@ -61,7 +61,7 @@ Notice: just the facts. What happened, who was involved, where, when. Keep it br
 
 > Initially, I felt defensive. I hadn't caused the delay, and the accusation stung. I was also anxious — the conversation was happening in a semi-public corridor, and I was conscious of other patients and staff nearby. After taking a moment to breathe, I reminded myself that the daughter's anger was directed at the situation, not at me personally. By the end of the interaction, I felt a quiet sense of relief that I hadn't allowed things to escalate further.
 
-This is the stage most nurses skip or rush. Don't. The NMC wants to see emotional intelligence here — awareness of your own reactions and how you managed them.
+This is the stage most nurses skip or rush. Don't. The NMC wants to see emotional intelligence here: awareness of your own reactions and how you managed them.
 
 ### Stage 3: Evaluation
 
@@ -103,14 +103,14 @@ Most nurses using it spend about 90 seconds a day on input. The AI does the rest
 
 - **Spread them across three years.** Don't write all five in one weekend. Genuine reflection happens closer to the event, and it reads that way too.
 - **Cover different areas.** Aim for one reflection each on clinical practice, communication, teamwork, leadership, and professional development.
-- **Use Gibbs for the complex ones.** For simpler reflections, a shorter model like Driscoll's What? So What? Now What? works fine. But for ethical dilemmas, difficult conversations, clinical incidents — Gibbs gives you the depth to demonstrate real learning.
+- **Use Gibbs for the complex ones.** For simpler reflections, a shorter model like Driscoll's What? So What? Now What? works fine. But for ethical dilemmas, difficult conversations, clinical incidents, Gibbs gives you the depth to demonstrate real learning.
 - **Aim for 500–800 words per account.** The NMC doesn't prescribe length, but this range hits the balance of thorough without rambling.
 
 ---
 
 ## Your Reflective Accounts Don't Have to Be Hard
 
-Reflection is already part of your job. You do it every shift — in the car on the way home, in the handover room, over tea with a colleague. The only difference is that revalidation asks you to write it down. A model like Gibbs' Reflective Cycle simply gives you a structure to capture what you're already doing.
+Reflection is already part of your job. You do it every shift, in the car on the way home, in the handover room, over tea with a colleague. The only difference is that revalidation asks you to write it down. A model like Gibbs' Reflective Cycle simply gives you a structure to capture what you're already doing.
 
 And if you'd rather spend ten minutes a month keeping everything organised than scrambling to reconstruct your professional life every three years, that's what Revalidation Copilot is for.
 

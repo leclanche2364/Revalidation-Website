@@ -1,6 +1,6 @@
-# 5 Common NMC Revalidation Mistakes — and How to Avoid Every One
+# 5 Common NMC Revalidation Mistakes (and How to Avoid Every One)
 
-Revalidation comes around once every three years. You'd think that would give everyone enough time to prepare. And yet, every cycle, hundreds of nurses end up scrambling in the final weeks — chasing signatures, reconstructing CPD logs from patchy memory, or realising they're short on participatory hours.
+Revalidation comes around once every three years. You'd think that would give everyone enough time to prepare. And yet, every cycle, hundreds of nurses end up scrambling in the final weeks, chasing signatures, reconstructing CPD logs from patchy memory, or realising they're short on participatory hours.
 
 The mistakes are almost never about competence. They're about timing, organisation, and a few subtle misunderstandings in the NMC guidance. Here are the five most common pitfalls, and exactly how to steer clear of them.
 
@@ -10,7 +10,7 @@ The mistakes are almost never about competence. They're about timing, organisati
 
 This one trips up more nurses than you'd expect.
 
-The NMC requires 450 hours of registered practice over three years (or 900 if you're on both parts of the register). That's about 15 hours a month — roughly two standard shifts. Most nurses on a 37.5-hour contract clear this comfortably.
+The NMC requires 450 hours of registered practice over three years (or 900 if you're on both parts of the register). That's about 15 hours a month, roughly two standard shifts. Most nurses on a 37.5-hour contract clear this comfortably.
 
 The problem starts when someone tries to log hours at the end of year three and realises they've been tracking shifts instead of actual hours worked. A 12-hour shift counts as 12 hours. A long day with handover and a late discharge counts as whatever time you were actually practising.
 
@@ -20,7 +20,7 @@ The problem starts when someone tries to log hours at the end of year three and 
 
 ## 2. Treating reflective accounts like academic essays
 
-This is the most common source of revalidation anxiety — and it's entirely unnecessary.
+This is the most common source of revalidation anxiety, and it's entirely unnecessary.
 
 A reflective account for the NMC is not a 2,000-word academic essay. It does not need references, learning objectives, or a formal structure beyond three simple questions:
 
@@ -28,9 +28,9 @@ A reflective account for the NMC is not a 2,000-word academic essay. It does not
 - How did you change or improve your work?
 - How is this relevant to the Code?
 
-The NMC is not marking your grammar. They want to see genuine reflection — what happened, what you thought about it, and what you do differently now. A single paragraph per question is enough. Many nurses overwrite and stress themselves out.
+The NMC is not marking your grammar. They want to see genuine reflection: what happened, what you thought about it, and what you do differently now. A single paragraph per question is enough. Many nurses overwrite and stress themselves out.
 
-**How to avoid it:** Write as you would explain it to a colleague over coffee. Short sentences. Honest observations. If you record a voice note in Revalidation Copilot and let the app structure it, you never face a blank page — and you never submit something that reads like a university assignment when all that was needed was a clear, honest reflection.
+**How to avoid it:** Write as you would explain it to a colleague over coffee. Short sentences. Honest observations. If you record a voice note in Revalidation Copilot and let the app structure it, you never face a blank page, and you never submit something that reads like a university assignment when all that was needed was a clear, honest reflection.
 
 ---
 
@@ -46,9 +46,9 @@ Waiting until the month your revalidation is due is a gamble. If your confirmer 
 
 ## 4. Forgetting the 20-hour participatory CPD floor
 
-Most nurses know they need 35 hours of CPD. Fewer remember that at least 20 of those hours must be participatory — meaning you actively interacted with the facilitator or other participants.
+Most nurses know they need 35 hours of CPD. Fewer remember that at least 20 of those must be participatory, meaning you actively interacted with the facilitator or other participants.
 
-This is the single most common reason a CPD log gets flagged. If you've logged 35 hours of journal reading and on-demand e-learning, you'll be short of the participatory minimum — even though your total is correct.
+This is the single most common reason a CPD log gets flagged. If you've logged 35 hours of journal reading and on-demand e-learning, you'll be short of the participatory minimum, even though your total is correct.
 
 Study days, live webinars, simulation sessions, workshops, and in-service training all count. Reading journals, watching recordings, and e-learning without a discussion forum do not.
 
@@ -58,19 +58,19 @@ Study days, live webinars, simulation sessions, workshops, and in-service traini
 
 ## 5. Submitting without a final review of your own portfolio
 
-This sounds obvious, but it's the mistake that causes the most last-minute stress. Nurses who have done everything right — logged hours, written reflections, collected feedback — still sometimes submit without checking that everything is internally consistent.
+This sounds obvious, but it's the mistake that causes the most last-minute stress. Nurses who have done everything right (logged hours, written reflections, collected feedback) still sometimes submit without checking that everything is internally consistent.
 
 A reflective account that references "the 2024 study day on tissue viability" doesn't match a CPD log that shows no study day that year. A feedback form mentions a colleague who isn't on the confirmer form. Small mismatches that an auditor will spot.
 
 The NMC doesn't expect perfection. But they do expect coherence. If your portfolio looks like it was assembled by three different people on three different days, it raises questions.
 
-**How to avoid it:** Before you submit, do one full pass through your portfolio as if you were the auditor. Check that dates make sense, names match, and reflections connect to CPD entries you've actually logged. If you've been using Revalidation Copilot, the app keeps your portfolio in one place — reflections linked to CPD entries, feedback tied to dates. A single export gives you everything in order, ready to review.
+**How to avoid it:** Before submit, do one full pass through your portfolio as if you were the auditor. Check that dates make sense, names match, and reflections connect to CPD entries you've actually logged. If you've been using Revalidation Copilot, the app keeps your portfolio in one place — reflections linked to CPD entries, feedback tied to dates. A single export gives you everything in order, ready to review.
 
 ---
 
 ## The Pattern Under All Five Mistakes
 
-Every one of these mistakes shares the same root cause: **leaving it too late.** Not a lack of knowledge, not a lack of nursing competence — just not having the system in place to track things as they happen.
+Every one of these mistakes shares the same root cause: **leaving it too late.** Not a lack of knowledge, not a lack of nursing competence, just not having the system in place to track things as they happen.
 
 Revalidation is not a test of your clinical ability. It's a test of your record-keeping over three years. And the nurses who pass it without stress are the ones who spent ten minutes a month, not ten hours in a panic.
 
@@ -78,6 +78,6 @@ Revalidation Copilot was built for exactly this. Log your hours. Record your CPD
 
 **Stop scrambling. Start tracking.**
 
-→ [Download Revalidation Copilot — free to start](https://revalidationcopilot.com/download)
+→ [Download Revalidation Copilot (free to start)](https://revalidationcopilot.com/download)
 
 *Independent tool. Not affiliated with or endorsed by the NMC.*
