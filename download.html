@@ -109,10 +109,28 @@
 
       if (ref && ref.trim()) {
         localStorage.setItem('pending_referral_code', ref.trim());
-
-        // Also try to deep link to the app so it can pick up the stored code
         window.location.href = 'revalidationaicopilot://invite?ref=' + encodeURIComponent(ref.trim());
       }
+
+      // Track download button clicks
+      document.querySelectorAll('a[href*="apps.apple.com"], a[href*="play.google.com"]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          var store = btn.href.includes('apps.apple.com') ? 'ios' : 'android';
+          fetch('https://affiliate-signup.odubunmi.workers.dev', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              type: 'track_download_click',
+              store: store,
+              source: params.get('utm_source') || 'Direct',
+              medium: params.get('utm_medium') || 'direct',
+              campaign: params.get('utm_campaign') || '',
+              page: document.title || 'Download',
+              url: window.location.href,
+            }),
+          }).catch(function(){});
+        });
+      });
     })();
   </script>
 </body>
