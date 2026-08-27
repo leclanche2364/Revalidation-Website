@@ -1,4 +1,28 @@
-# /feedback 404 — diagnostic order
+# /feedback 404 — RESOLVED, notes kept for next time
+
+## What it actually was (27 Aug 2026)
+
+Two separate faults, found in this order:
+
+**1. `api/feedback.js` was never built.** The repo has no `package.json`, so
+Vercel treats `.js` as CommonJS and the file uses `export default` — ESM. It was
+silently skipped: no error, no function, no invocation. Fixed by renaming to
+`api/feedback.mjs`, which is unambiguously ESM and needs no `package.json`.
+
+**2. The rewrite did not match the URL the app generates.** The Flutter app
+emitted `/feedback/?t=...` with a **trailing slash**. The rewrite sources were
+`/feedback` (a different path) and `/feedback/:slug` (`:slug` cannot be empty),
+so neither matched and Vercel served its 404. Fixed at both ends — `vercel.json`
+now covers `/feedback`, `/feedback/` and `/feedback/:slug*`, and the app emits
+the clean path with no trailing slash.
+
+**The lesson for next time:** `curl` the function path directly first. A 200 at
+`/api/feedback` with a 404 at `/feedback` isolates the problem to routing in one
+command, and is what separated fault 1 from fault 2 here.
+
+---
+
+# Original diagnostic order
 
 Run these in order. Each one eliminates half the problem.
 
