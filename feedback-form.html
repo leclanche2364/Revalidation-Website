@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- OG_BLOCK: api/feedback.js replaces everything between these markers with
+       tags carrying the SENDER'S NAME, resolved server-side. The preview card is
+       seen before the page loads and is the difference between a link an NHS
+       employee taps and one their phishing training tells them not to. What
+       follows is the standalone fallback. Keep the markers exactly as they are. -->
+  <!--OG_BLOCK_START-->
+  <title>Practice feedback request | Revalidation Copilot</title>
+  <meta property="og:title" content="Practice feedback request" />
+  <meta property="og:description" content="Someone has asked you for a short piece of feedback for their NMC revalidation. It takes about two minutes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Revalidation Copilot" />
+  <meta property="og:image" content="https://www.revalidationaicopilot.co.uk/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.revalidationaicopilot.co.uk/og-image.png" />
+  <meta name="robots" content="noindex,nofollow" />
+  <!--OG_BLOCK_END-->
+
+  <!-- NO analytics on this page, deliberately. It collects personal information
+       from someone who has no account and never will, and the site has no consent
+       mechanism. Script-free means nothing to disclose and no referrer leak. If
+       you need funnel numbers they come from the server side. -->
+
+  <style>
+    :root { --bg:#f8fafc; --surface:#fff; --text:#183247; --muted:#5f7384; --primary:#1b3a57; --primary-2:#244c70; --accent:#0aa37f; --accent-2:#dff6ef; --border:#dbe6ee; --shadow:0 10px 30px rgba(27,58,87,.08); --radius:22px; --container:1180px; }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6} a{text-decoration:none;color:inherit}.container{width:min(100% - 2rem,var(--container));margin:0 auto}.site-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(219,230,238,.8)}.navbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:78px}.brand{display:flex;align-items:center;font-weight:800}.nav-links{display:flex;align-items:center;gap:1.3rem;list-style:none;padding:0;margin:0;color:var(--muted);font-weight:600}.badge{font-size:.72rem;font-weight:700;padding:.28rem .5rem;border-radius:999px;background:var(--accent-2);color:var(--accent)}.coming-soon{display:inline-flex;align-items:center;gap:.45rem;color:var(--muted)}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.1rem;border-radius:14px;border:1px solid transparent;font-weight:700;cursor:pointer;font-size:1rem;font-family:inherit}.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 20px rgba(10,163,127,.2)}.btn-secondary{background:var(--surface);color:var(--primary);border-color:var(--border)}.menu-btn{display:none;border:1px solid var(--border);background:var(--surface);border-radius:12px;padding:.7rem .8rem;font-weight:700}.eyebrow{display:inline-flex;align-items:center;padding:.45rem .8rem;border-radius:999px;background:var(--accent-2);color:var(--accent);font-weight:700;font-size:.9rem;margin-bottom:1rem}h1,h2,h3{line-height:1.15;letter-spacing:-.03em;margin:0 0 1rem}h1{font-size:clamp(1.9rem,4vw,2.6rem)}h3{font-size:1.2rem}.lead{font-size:1.05rem;color:var(--muted)}.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.6rem}.muted{color:var(--muted)}.site-footer{background:#0f2434;color:rgba(255,255,255,.86);padding:4rem 0 2rem}.footer-grid{display:grid;gap:1.2rem;grid-template-columns:1.4fr 1fr 1fr 1fr}.site-footer h4{color:#fff;margin:0 0 .9rem}.footer-links{list-style:none;padding:0;margin:0;display:grid;gap:.6rem;color:rgba(255,255,255,.72)}.footer-bottom{margin-top:2.2rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.62);font-size:.95rem}
+
+    /* Page-specific */
+    .wrap{width:min(100% - 2rem,660px);margin:0 auto;padding:2.5rem 0 4rem}
+    label{display:block;font-weight:700;font-size:.95rem;margin:1.4rem 0 .5rem}
+    .opt{font-weight:500;color:var(--muted);font-size:.88rem}
+    select,textarea,input[type=text],input[type=date]{width:100%;padding:.85rem .9rem;border:1px solid var(--border);border-radius:14px;font:inherit;font-size:1rem;color:inherit;background:var(--surface)}
+    select:focus,textarea:focus,input:focus{outline:3px solid rgba(10,163,127,.35);outline-offset:1px;border-color:var(--accent)}
+    textarea{min-height:170px;resize:vertical;line-height:1.6}
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 .7rem}
+    .chip{border:1px solid var(--border);background:var(--surface);color:var(--primary);border-radius:999px;padding:.5rem .9rem;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;min-height:44px}
+    .chip:hover{border-color:var(--accent);color:var(--accent)}
+    .notice{background:#fff8e6;border:1px solid #f0d089;border-radius:14px;padding:.8rem 1rem;font-size:.94rem;margin:.2rem 0 .7rem}
+    .rolehint{font-size:.9rem;color:var(--muted);margin:.55rem 0 0}
+    .count{font-size:.85rem;color:var(--muted);text-align:right;margin-top:.4rem}
+    .err{background:#fdeceb;border:1px solid #f3b6b1;border-radius:14px;padding:.8rem 1rem;font-size:.95rem;margin-top:1rem;display:none}
+    .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .hidden{display:none}
+    .center{text-align:center}
+    .tick{width:60px;height:60px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:1.9rem;margin:0 auto 1rem}
+    .reassure{font-size:.95rem;color:var(--muted);margin-top:1.3rem}
+    .reassure a{color:var(--muted);text-decoration:underline}
+    .pitch{margin-top:1.2rem}
+    .pitch ul{margin:0 0 1.2rem;padding-left:1.2rem;color:var(--muted)}
+    .pitch li{margin-bottom:.4rem}
+    .disclaimer{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:1rem;max-width:70ch}
+    @media (max-width:1100px){.nav-links{position:absolute;inset:78px 1rem auto 1rem;background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);padding:1rem;flex-direction:column;align-items:flex-start;display:none}.nav-links.open{display:flex}.menu-btn{display:inline-flex}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>:first-child{grid-column:1/-1}}
+    @media (max-width:760px){.footer-grid{grid-template-columns:1fr}.btn{width:100%}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="/index.html">
+      <img src="/logo.png" alt="" style="height:42px;width:42px;border-radius:14px;box-shadow:var(--shadow);vertical-align:middle;" />
+      <span style="margin-left:0.85rem;">Revalidation Copilot</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/features.html">Features</a></li>
+      <li><a href="/how-it-works.html">How It Works</a></li>
+      <li><a href="/support.html">Support</a></li>
+    </ul>
+    <a class="btn btn-primary" href="/download.html">Download App</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- LOADING -->
+  <div id="loading" class="card center muted" role="status">Loading…</div>
+
+  <!-- LINK NOT AVAILABLE -->
+  <section id="dead" class="card hidden">
+    <h1>This link isn't available</h1>
+    <p class="lead" style="margin-bottom:0">
+      It may have expired, been withdrawn, or already received enough responses.
+      Please ask the person who sent it for a new one.
+    </p>
+  </section>
+
+  <!-- FORM -->
+  <section id="formCard" class="hidden">
+    <div class="eyebrow">Feedback request</div>
+    <h1><span id="who">Someone</span> has asked you for feedback</h1>
+    <p class="lead">
+      Every nurse, midwife and nursing associate on the NMC register needs five pieces of
+      feedback about their practice every three years. It can come from anyone who has seen
+      them work — colleagues, managers, other professionals, students, or the people they
+      have cared for and their families.
+    </p>
+    <p class="lead">
+      A few honest sentences is all that's needed, and it takes about two minutes.
+      <strong>There's no account to create, no password, and nothing to pay.</strong>
+    </p>
+
+    <div class="card" style="margin-top:1.6rem">
+      <form id="form" novalidate>
+
+        <label for="giverRole">Your relationship to them</label>
+        <select id="giverRole" required>
+          <option value="">Choose one…</option>
+          <optgroup label="I work with them">
+            <option value="colleague">Nursing colleague</option>
+            <option value="manager">Manager, supervisor or practice assessor</option>
+            <option value="other_professional">Another healthcare professional</option>
+            <option value="student">Student, or someone they supervise</option>
+          </optgroup>
+          <optgroup label="They cared for me or someone I know">
+            <option value="patient">Patient or service user</option>
+            <option value="family_carer">Family member or carer</option>
+          </optgroup>
+          <option value="other">Someone else</option>
+        </select>
+        <p class="rolehint" id="roleHint"></p>
+
+        <label for="giverName">Your name <span class="opt">— optional, feedback can be anonymous</span></label>
+        <input type="text" id="giverName" maxlength="80" autocomplete="name" />
+
+        <label for="content">Your feedback</label>
+        <div class="notice">
+          Please don't include patient names, dates of birth, NHS numbers, or anything else
+          that could identify a patient.
+        </div>
+        <div class="chips" id="chips" aria-label="Prompts to help you start"></div>
+        <textarea id="content" required minlength="20" maxlength="2000"
+          placeholder="What have you seen them do well? What difference did it make?"
+          aria-describedby="count"></textarea>
+        <div class="count" id="count" aria-live="polite">0 / 2000</div>
+
+        <label for="occurredOn">When did this happen? <span class="opt">— optional</span></label>
+        <input type="date" id="occurredOn" />
+
+        <div class="hp" aria-hidden="true">
+          <label for="hp">Leave this empty</label>
+          <input type="text" id="hp" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit" style="width:100%;margin-top:1.6rem">
+          Send feedback
+        </button>
+        <div class="err" id="err" role="alert"></div>
+      </form>
+    </div>
+
+    <p class="reassure">
+      Not sure this is genuine? Ask <span id="who2">them</span> directly before you fill anything in.
+    </p>
+    <p class="reassure">
+      What you write is sent to the person who asked for it, for their NMC revalidation
+      portfolio. No account is needed and we don't email you.
+      <a href="/privacy.html#feedback-givers">How we handle your information</a>.
+    </p>
+  </section>
+
+  <!-- SUCCESS -->
+  <section id="done" class="card center hidden">
+    <div class="tick" aria-hidden="true">✓</div>
+    <h1>Thank you</h1>
+    <p class="lead" style="margin-bottom:0">
+      Your feedback has been sent. They'll review it and add it to their revalidation portfolio.
+    </p>
+  </section>
+
+  <!-- PITCH — success only, NMC registrants only -->
+  <section id="pitch" class="card pitch hidden">
+    <div class="eyebrow">While you're here</div>
+    <h3>Your revalidation is coming too</h3>
+    <p class="muted">
+      Five reflective accounts, five pieces of feedback, 450 practice hours, 35 hours of CPD,
+      a reflective discussion and a confirmer. Revalidation Copilot keeps all of it in one
+      place across the full three years, then exports a pack for your confirmer.
+    </p>
+    <ul>
+      <li>Log CPD and practice hours as you go</li>
+      <li>Send a link like this one to collect your own feedback</li>
+      <li>Export an NMC-structured pack when you're ready</li>
+    </ul>
+    <a class="btn btn-primary" style="width:100%"
+       href="/download.html?utm_source=feedback_link&utm_medium=referral&utm_campaign=giver">Get the app</a>
+    <a class="btn btn-secondary" style="width:100%;margin-top:.7rem"
+       href="/blog/nmc-revalidation-checklist-2026.html?utm_source=feedback_link&utm_medium=referral&utm_campaign=giver_checklist">Free 2026 revalidation checklist</a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:.9rem;color:#fff">
+          <img src="/logo.png" alt="" style="height:42px;width:42px;border-radius:14px;vertical-align:middle;" />
+          <span style="margin-left:0.85rem;">Revalidation Copilot</span>
+        </div>
+        <p style="max-width:34ch;margin:0;color:rgba(255,255,255,.72)">Built to support nurses with clearer records, helpful drafting support, and less last-minute stress.</p>
+      </div>
+      <div><h4>Product</h4><ul class="footer-links"><li><a href="/index.html">Home</a></li><li><a href="/features.html">Features</a></li><li><a href="/how-it-works.html">How It Works</a></li></ul></div>
+      <div><h4>Resources</h4><ul class="footer-links"><li><a href="/support.html">Support</a></li><li><a href="/contact.html">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul class="footer-links"><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Beemal Innovation Ltd. All rights reserved.
+      <p class="disclaimer">Revalidation Copilot is an independent product and is not affiliated with, endorsed by, or approved by the Nursing and Midwifery Council.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // The two feedback functions are deployed with --no-verify-jwt, so no key is
+  // needed here. They validate the feedback token themselves; the Supabase anon
+  // key was never a security control on a public form.
+  var FN = 'https://hehrgxshzfrirlnoffgh.supabase.co/functions/v1';
+
+  var $ = function (id) { return document.getElementById(id); };
+  var show = function (id) { $(id).classList.remove('hidden'); };
+  var hide = function (id) { $(id).classList.add('hidden'); };
+
+  var mb = $('menuBtn'), nl = $('navLinks');
+  if (mb) mb.addEventListener('click', function () {
+    var open = nl.classList.toggle('open');
+    mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  var token = new URLSearchParams(location.search).get('t') || '';
+
+  // A ward manager and a patient's daughter are being asked the same question in
+  // name only. A generic prompt gets a generic answer from the first and, very
+  // often, nothing at all from the second.
+  var PROMPTS = {
+    colleague:          'What have you seen them do well? What difference did it make to the team or to patients?',
+    manager:            'How do they perform in their role? What have you seen them handle well, and what could they build on?',
+    other_professional: 'How do they work with you and your team? What have you seen them do well?',
+    student:            'What have you learned from them? How have they supported you?',
+    patient:            'How did they care for you? Was there anything they did that made a difference?',
+    family_carer:       'How did they care for your relative, or support you? Anything that made a difference?',
+    other:              'What have you seen them do well? What difference did it make?'
+  };
+  var HINTS = {
+    patient:      'Please write about the care you received — no need to name anyone else.',
+    family_carer: 'Please write about the care you saw — there is no need to name your relative.'
+  };
+  var CHIPS = {
+    professional: ['What they did well', 'The difference it made', 'Something they could build on'],
+    personal:     ['How they cared for me', 'Something that made a difference']
+  };
+  var PERSONAL = { patient: 1, family_carer: 1 };
+  var PITCH_ROLES = { colleague: 1, manager: 1, student: 1 };
+
+  function renderChips(role) {
+    var box = $('chips');
+    box.innerHTML = '';
+    if (!role) return;
+    var list = PERSONAL[role] ? CHIPS.personal : CHIPS.professional;
+    list.forEach(function (label) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.textContent = label;
+      b.addEventListener('click', function () {
+        var ta = $('content');
+        var pre = ta.value.trim();
+        ta.value = (pre ? pre + '\n\n' : '') + label + ': ';
+        ta.focus();
+        ta.setSelectionRange(ta.value.length, ta.value.length);
+        $('count').textContent = ta.value.length + ' / 2000';
+      });
+      box.appendChild(b);
+    });
+  }
+
+  // ── Resolve the token ───────────────────────────────────────────────────
+  if (!token) { hide('loading'); show('dead'); return; }
+
+  fetch(FN + '/feedback-request-info?t=' + encodeURIComponent(token))
+    .then(function (r) { return r.json(); })
+    .then(function (out) {
+      hide('loading');
+      if (!out || !out.ok) { show('dead'); return; }
+      if (out.firstName) {
+        $('who').textContent = out.firstName;
+        $('who2').textContent = out.firstName;
+      }
+      show('formCard');
+    })
+    .catch(function () { hide('loading'); show('dead'); });
+
+  $('content').addEventListener('input', function () {
+    $('count').textContent = this.value.length + ' / 2000';
+  });
+
+  $('giverRole').addEventListener('change', function () {
+    var r = this.value;
+    $('content').setAttribute('placeholder', PROMPTS[r] || PROMPTS.other);
+    $('roleHint').textContent = HINTS[r] || '';
+    renderChips(r);
+  });
+
+  // ── Submit ──────────────────────────────────────────────────────────────
+  $('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var err = $('err');
+    err.style.display = 'none';
+
+    var role = $('giverRole').value;
+    var content = $('content').value.trim();
+
+    if (!role) { err.textContent = 'Please choose your relationship to them.'; err.style.display = 'block'; $('giverRole').focus(); return; }
+    if (content.length < 20) { err.textContent = 'Please write at least a sentence or two.'; err.style.display = 'block'; $('content').focus(); return; }
+
+    var btn = $('submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    fetch(FN + '/feedback-request-submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        token: token,
+        giverRole: role,
+        giverName: $('giverName').value.trim(),
+        content: content,
+        occurredOn: $('occurredOn').value || '',
+        hp: $('hp').value
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (out) {
+        if (!out || !out.ok) {
+          btn.disabled = false;
+          btn.textContent = 'Send feedback';
+          err.textContent = "Sorry, that didn't send. The link may have expired — please ask them for a new one.";
+          err.style.display = 'block';
+          return;
+        }
+        hide('formCard');
+        show('done');
+        // Only people who actually revalidate with the NMC. A physio registers
+        // with the HCPC; a bereaved relative being sold software right after
+        // writing about their care is the version that generates a complaint.
+        if (PITCH_ROLES[role]) show('pitch');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Send feedback';
+        err.textContent = 'Something went wrong. Please try again in a moment.';
+        err.style.display = 'block';
+      });
+  });
+})();
+</script>
+</body>
+</html>

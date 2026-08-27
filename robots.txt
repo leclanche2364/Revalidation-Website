@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
+# Feedback request links are private, token-addressed pages
+Disallow: /feedback
+Disallow: /feedback-form.html
+
 # AI crawlers
 User-agent: GPTBot
 Allow: /
