@@ -51,6 +51,16 @@
   const medium = params.get('utm_medium') || (source === 'Google Search' ? 'organic' : (ref ? 'referral' : 'direct'));
   const campaign = params.get('utm_campaign') || '';
 
+  // Persist UTM attribution so later pages (e.g. /download.html) keep the source.
+  // First touch never overwritten; last touch updated on every UTM-bearing visit.
+  if (utmSource) {
+    try {
+      const touch = { source: source.substring(0, 100), medium: medium.substring(0, 50), campaign: campaign.substring(0, 200), ts: Date.now() };
+      if (!localStorage.getItem('rc_first_utm')) localStorage.setItem('rc_first_utm', JSON.stringify(touch));
+      localStorage.setItem('rc_last_utm', JSON.stringify(touch));
+    } catch (e) {}
+  }
+
   // Only track meaningful views (skip bots, pings, previews)
   if (navigator.webdriver) return;
   if (document.hidden) return;
@@ -72,4 +82,13 @@
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),
   }).catch(() => {});
+// Read persisted UTM attribution (first-touch and last-touch). Returns {} if absent.
+window.rcUtmFallback = function() {
+  try {
+    const parse = function(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch (e) { return {}; } };
+    const first = parse('rc_first_utm');
+    const last = parse('rc_last_utm');
+    return { first: first, last: last };
+  } catch (e) { return { first: {}, last: {} }; }
+};
 })();

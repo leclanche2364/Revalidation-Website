@@ -116,15 +116,21 @@
       document.querySelectorAll('a[href*="apps.apple.com"], a[href*="play.google.com"]').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
           var store = btn.href.includes('apps.apple.com') ? 'ios' : 'android';
+          // Attribution: current URL params first, else persisted UTM from earlier pages
+          var utm = (window.rcUtmFallback && window.rcUtmFallback()) || { first: {}, last: {} };
+          var pick = function(key, fallback) {
+            return params.get(key) || (utm.last && utm.last[key.replace('utm_', '')]) || (utm.first && utm.first[key.replace('utm_', '')]) || fallback;
+          };
           fetch('https://affiliate-signup.odubunmi.workers.dev', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               type: 'track_download_click',
               store: store,
-              source: params.get('utm_source') || 'Direct',
-              medium: params.get('utm_medium') || 'direct',
-              campaign: params.get('utm_campaign') || '',
+              source: pick('utm_source', 'Direct'),
+              medium: pick('utm_medium', 'direct'),
+              campaign: pick('utm_campaign', ''),
+              first_source: utm.first && utm.first.source || '',
               page: document.title || 'Download',
               url: window.location.href,
             }),
