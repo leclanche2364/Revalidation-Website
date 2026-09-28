@@ -24,7 +24,7 @@ async function supabaseInsert(env, row) {
       console.error('Supabase error:', res.status, errText);
       return { error: res.status, detail: errText.substring(0, 200) };
     }
-    return { ok: true, status: res.status };
+    return { ok: true, status: res.status, host: env.SUPABASE_URL.replace(/^https:\/\//, '').split('.')[0], keyTail: env.SUPABASE_SERVICE_ROLE_KEY.slice(-8) };
   } catch (err) {
     console.error('Supabase insert failed:', err.message);
     return { exception: err.message };
