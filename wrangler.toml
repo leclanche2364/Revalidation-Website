@@ -1,0 +1,8 @@
+# Cloudflare Worker config — Revalidation Copilot affiliate/tracking worker
+# Deploy with: npx wrangler deploy   (no wizard prompts)
+name = "affiliate-signup"
+main = "affiliate-worker.js"
+compatibility_date = "2026-09-01"
+
+[observability]
+enabled = true
