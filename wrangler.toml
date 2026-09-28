@@ -4,5 +4,8 @@ name = "affiliate-signup"
 main = "affiliate-worker.js"
 compatibility_date = "2026-09-01"
 
+[vars]
+SUPABASE_URL = "https://jcqiokvbkocnoxgeitin.supabase.co"
+
 [observability]
 enabled = true
