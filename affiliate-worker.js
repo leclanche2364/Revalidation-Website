@@ -7,7 +7,7 @@ const DB_DATA_SOURCE_ID = '153c1b78-456f-418a-a16e-c49645be88fd';
 // Best-effort mirror to Supabase (website_events table). Notion stays primary;
 // a Supabase failure is logged but never breaks the response.
 async function supabaseInsert(env, row) {
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return; // not configured yet
+  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) return { skipped: 'missing env' };
   try {
     const res = await fetch(env.SUPABASE_URL.replace(/\/$/, '') + '/rest/v1/website_events', {
       method: 'POST',
@@ -19,9 +19,15 @@ async function supabaseInsert(env, row) {
       },
       body: JSON.stringify(row),
     });
-    if (!res.ok) console.error('Supabase error:', await res.text());
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error('Supabase error:', res.status, errText);
+      return { error: res.status, detail: errText.substring(0, 200) };
+    }
+    return { ok: true, status: res.status };
   } catch (err) {
     console.error('Supabase insert failed:', err.message);
+    return { exception: err.message };
   }
 }
 
@@ -83,7 +89,7 @@ export default {
           props['Referrer URL'] = { url: body.referrer.substring(0, 2000) };
         }
 
-        await supabaseInsert(env, {
+        const supa = await supabaseInsert(env, {
           event_type: 'pageview',
           page: body.page || 'Other',
           path: body.path || '',
@@ -100,7 +106,7 @@ export default {
           properties: props,
         });
 
-        return new Response(JSON.stringify({ ok: true }), {
+        return new Response(JSON.stringify({ ok: true, supa }), {
           headers: { ...headers, 'Content-Type': 'application/json' }
         });
       }
@@ -112,7 +118,7 @@ export default {
         const sourceLabel = body.source || 'Direct';
         const eventName = storeLabel + ' Download — ' + sourceLabel + ' — ' + now.substring(0, 10);
 
-        await supabaseInsert(env, {
+        const supa = await supabaseInsert(env, {
           event_type: 'download_click',
           page: 'Download',
           store: storeLabel,
@@ -137,7 +143,7 @@ export default {
           }
         });
 
-        return new Response(JSON.stringify({ ok: true }), {
+        return new Response(JSON.stringify({ ok: true, supa }), {
           headers: { ...headers, 'Content-Type': 'application/json' }
         });
       }
