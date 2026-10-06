@@ -62,5 +62,95 @@
     "description": "Track CPD, log practice hours, draft reflective accounts and export your NMC portfolio. A 52-second look at Revalidation Copilot.",
     "thumb": "https://i.ytimg.com/vi/MBW6ZkTUfzc/hqdefault.jpg",
     "uploadDate": "2026-09-01"
+  },
+  "tt-450-hours": {
+    "platform": "tiktok",
+    "id": "7677264699272088854",
+    "title": "You don’t need 1,000 hours to revalidate. The NMC says 450",
+    "description": "The NMC requires 450 practice hours across your 3-year revalidation cycle, not 1,000. How the hours work, how to check what you have, and how to log them without spreadsheets.",
+    "thumb": "/assets/videos/7677264699272088854.jpg",
+    "uploadDate": "2026-08-23",
+    "page": "blog/nmc-revalidation-requirements-2026.html"
+  },
+  "tt-confirmer": {
+    "platform": "tiktok",
+    "id": "7673982146872282370",
+    "title": "Your NMC confirmer doesn’t have to be a nurse",
+    "description": "The NMC says where possible your confirmer should be your line manager, whoever that is. Who can confirm your revalidation, what the conversation covers, and how to arrange it.",
+    "thumb": "/assets/videos/7673982146872282370.jpg",
+    "uploadDate": "2026-08-14",
+    "page": "blog/nmc-revalidation-confirmer-guide.html"
+  },
+  "tt-free-app": {
+    "platform": "tiktok",
+    "id": "7667641374270868758",
+    "title": "The free app that tracks your CPD, practice hours and feedback",
+    "description": "The free app that tracks your CPD, practice hours and feedback, and turns a 2-minute voice note into an NMC-ready reflective account.",
+    "thumb": "/assets/videos/7667641374270868758.jpg",
+    "uploadDate": "2026-07-28",
+    "page": "blog/nmc-revalidation-app-free-nurses.html"
+  },
+  "tt-lapsed": {
+    "platform": "tiktok",
+    "id": "7666178326720990486",
+    "title": "NMC registration lapsed? The door’s not closed",
+    "description": "Exactly what the NMC needs from you to get back on the register after your registration has lapsed, step by step.",
+    "thumb": "/assets/videos/7666178326720990486.jpg",
+    "uploadDate": "2026-07-24",
+    "page": "blog/nmc-revalidation-return-to-practice.html"
+  },
+  "tt-fee-change": {
+    "platform": "tiktok",
+    "id": "7665077056694193430",
+    "title": "The NMC just changed its registration fee for the first time in 11 years",
+    "description": "From 1 October 2026 the annual NMC registration fee changes. What the new fee is, when it takes effect, and what it means for your revalidation.",
+    "thumb": "/assets/videos/7665077056694193430.jpg",
+    "uploadDate": "2026-07-21",
+    "page": "blog/nmc-registration-fee-2026.html"
+  },
+  "tt-cpd-flag": {
+    "platform": "tiktok",
+    "id": "7663219502703791382",
+    "title": "The NMC will flag you for this CPD mistake",
+    "description": "The CPD mistake the NMC will flag and most nurses have no idea it’s a rule: participatory vs non-participatory hours. What actually counts for your 35 hours.",
+    "thumb": "/assets/videos/7663219502703791382.jpg",
+    "uploadDate": "2026-07-16",
+    "page": "blog/nmc-cpd-ideas-examples.html"
+  },
+  "tt-code-connection": {
+    "platform": "tiktok",
+    "id": "7659000455007178006",
+    "title": "Every reflective account must connect to the NMC Code",
+    "description": "Every reflective account you write for revalidation needs to connect to the NMC Code. But you don’t need to memorise it. How to pick the right themes quickly.",
+    "thumb": "/assets/videos/7659000455007178006.jpg",
+    "uploadDate": "2026-07-05",
+    "page": "blog/nmc-code-reflective-account-guide.html"
+  },
+  "tt-steps": {
+    "platform": "tiktok",
+    "id": "7658271696465710339",
+    "title": "NMC revalidation coming up? Watch this before you search Google",
+    "description": "The exact steps every UK nurse needs to complete their NMC revalidation: CPD hours, reflective accounts, feedback, confirmation — in order.",
+    "thumb": "/assets/videos/7658271696465710339.jpg",
+    "uploadDate": "2026-07-03",
+    "page": "blog/what-is-nmc-revalidation.html"
+  },
+  "tt-6-weeks": {
+    "platform": "tiktok",
+    "id": "7657538509518982422",
+    "title": "Six weeks until your NMC revalidation and nothing tracked",
+    "description": "Six weeks until revalidation and you haven’t tracked anything? The recovery plan: what to gather, what to write, and how to be ready in time.",
+    "thumb": "/assets/videos/7657538509518982422.jpg",
+    "uploadDate": "2026-07-01",
+    "page": "blog/nmc-revalidation-portfolio-organise.html"
+  },
+  "tt-reflective-struggle": {
+    "platform": "tiktok",
+    "id": "7651677551676427542",
+    "title": "Struggling with your NMC reflective account?",
+    "description": "Struggling with your reflective account is one of the most common revalidation challenges. A practical way to start, structure and finish one.",
+    "thumb": "/assets/videos/7651677551676427542.jpg",
+    "uploadDate": "2026-06-15",
+    "page": "blog/nmc-reflective-account-examples.html"
   }
 }
