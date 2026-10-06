@@ -19,8 +19,9 @@
 </main>
 <script>
 (function () {
-  // Where the QR code was: bs = blog sidebar card, bc = blog end-of-post box, dl = download page.
-  var MEDIUMS = { bs: 'qr_blog_sidebar', bc: 'qr_blog_cta', dl: 'qr_download' };
+  // Where the QR code was: bs = blog sidebar card, bc = blog end-of-post box,
+  // dl = download page, ws = "web app coming soon" pop-up.
+  var MEDIUMS = { bs: 'qr_blog_sidebar', bc: 'qr_blog_cta', dl: 'qr_download', ws: 'qr_webapp_soon' };
   var s = new URLSearchParams(location.search).get('s');
   var medium = MEDIUMS[s] || 'qr_unknown';
 
