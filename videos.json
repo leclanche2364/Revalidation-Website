@@ -1,0 +1,66 @@
+{
+  "tt-audit": {
+    "platform": "tiktok",
+    "id": "7657896250213256470",
+    "title": "NMC revalidation audit: what the NMC actually checks",
+    "description": "Your NMC revalidation has been selected for audit. What the NMC actually checks, what happens if something is missing, and how to be ready before that email arrives.",
+    "thumb": "/assets/videos/7657896250213256470.jpg",
+    "uploadDate": "2026-07-02"
+  },
+  "tt-mistakes": {
+    "platform": "tiktok",
+    "id": "7650939861150485782",
+    "title": "5 common NMC revalidation mistakes (and how to avoid them)",
+    "description": "Most nurses don't struggle because revalidation is difficult. Leaving everything until the last minute, losing CPD certificates, forgetting reflective accounts, tracking CPD manually, keeping evidence scattered. Every one of these mistakes is avoidable.",
+    "thumb": "/assets/videos/7650939861150485782.jpg",
+    "uploadDate": "2026-06-13"
+  },
+  "tt-reflective-debrief": {
+    "platform": "tiktok",
+    "id": "7623132262019730710",
+    "title": "Turn a shift debrief into an NMC-ready reflective account",
+    "description": "Start debriefing after every shift and turn it into an NMC-ready reflective account in seconds. Stay anonymous, save time, never scramble for revalidation again.",
+    "thumb": "/assets/videos/7623132262019730710.jpg",
+    "uploadDate": "2026-03-30"
+  },
+  "tt-cpd-one-place": {
+    "platform": "tiktok",
+    "id": "7623308576144035094",
+    "title": "All your CPD. One place. Zero stress.",
+    "description": "Revalidation made easy. Track it. Draft it. Export it. Done.",
+    "thumb": "/assets/videos/7623308576144035094.jpg",
+    "uploadDate": "2026-03-31"
+  },
+  "tt-nmc-ai-council": {
+    "platform": "tiktok",
+    "id": "7661369512129793282",
+    "title": "The NMC is officially talking about AI in revalidation",
+    "description": "On 21 July, the NMC Council will consider the biggest revalidation update in years, including how AI and digital technology fit into the Code.",
+    "thumb": "/assets/videos/7661369512129793282.jpg",
+    "uploadDate": "2026-07-11"
+  },
+  "yt-cpd-35-hours": {
+    "platform": "youtube",
+    "id": "fA4CF9UlCYU",
+    "title": "NMC Revalidation CPD Explained: What Counts Towards Your 35 Hours?",
+    "description": "What counts towards the 35 hours of CPD you need for NMC revalidation, explained in under a minute.",
+    "thumb": "https://i.ytimg.com/vi/fA4CF9UlCYU/hqdefault.jpg",
+    "uploadDate": "2026-09-01"
+  },
+  "yt-tutorial-30-min": {
+    "platform": "youtube",
+    "id": "XqpaEKFVhJM",
+    "title": "Complete Your NMC Revalidation in 30 Minutes (Step-by-Step Tutorial)",
+    "description": "A step-by-step tutorial showing how Revalidation Copilot takes you from scattered evidence to an NMC-ready revalidation in 30 minutes.",
+    "thumb": "https://i.ytimg.com/vi/XqpaEKFVhJM/hqdefault.jpg",
+    "uploadDate": "2026-09-01"
+  },
+  "yt-overview": {
+    "platform": "youtube",
+    "id": "MBW6ZkTUfzc",
+    "title": "Revalidation Copilot in 52 seconds",
+    "description": "Track CPD, log practice hours, draft reflective accounts and export your NMC portfolio. A 52-second look at Revalidation Copilot.",
+    "thumb": "https://i.ytimg.com/vi/MBW6ZkTUfzc/hqdefault.jpg",
+    "uploadDate": "2026-09-01"
+  }
+}
