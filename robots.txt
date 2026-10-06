@@ -20,3 +20,4 @@ User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://www.revalidationaicopilot.co.uk/sitemap.xml
+Sitemap: https://www.revalidationaicopilot.co.uk/sitemap_videos.xml

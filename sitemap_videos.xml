@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage: product overview (YouTube) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/MBW6ZkTUfzc/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Revalidation Copilot in 52 seconds</video:title>
+      <video:description>Track CPD, log practice hours, draft reflective accounts and export your NMC portfolio. A 52-second look at Revalidation Copilot.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/MBW6ZkTUfzc</video:player_loc>
+      <video:publication_date>2026-09-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- Download page: 30-minute tutorial (YouTube) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/download.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/XqpaEKFVhJM/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>Complete Your NMC Revalidation in 30 Minutes (Step-by-Step Tutorial)</video:title>
+      <video:description>A step-by-step tutorial showing how Revalidation Copilot takes you from scattered evidence to an NMC-ready revalidation in 30 minutes.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/XqpaEKFVhJM</video:player_loc>
+      <video:publication_date>2026-09-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- How it works: shift debrief to reflective account (TikTok) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/how-it-works.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.revalidationaicopilot.co.uk/assets/videos/7623132262019730710.jpg</video:thumbnail_loc>
+      <video:title>Turn a shift debrief into an NMC-ready reflective account</video:title>
+      <video:description>Start debriefing after every shift and turn it into an NMC-ready reflective account in seconds. Stay anonymous, save time, never scramble for revalidation again.</video:description>
+      <video:player_loc>https://www.tiktok.com/embed/v2/7623132262019730710</video:player_loc>
+      <video:publication_date>2026-03-30</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- Audit article: audit explainer (TikTok) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/what-happens-nmc-revalidation-audit.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.revalidationaicopilot.co.uk/assets/videos/7657896250213256470.jpg</video:thumbnail_loc>
+      <video:title>NMC revalidation audit: what the NMC actually checks</video:title>
+      <video:description>Your NMC revalidation has been selected for audit. What the NMC actually checks, what happens if something is missing, and how to be ready before that email arrives.</video:description>
+      <video:player_loc>https://www.tiktok.com/embed/v2/7657896250213256470</video:player_loc>
+      <video:publication_date>2026-07-02</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- 5 mistakes article: 5 mistakes video (TikTok) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/5-common-nmc-revalidation-mistakes.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.revalidationaicopilot.co.uk/assets/videos/7650939861150485782.jpg</video:thumbnail_loc>
+      <video:title>5 common NMC revalidation mistakes (and how to avoid them)</video:title>
+      <video:description>Most nurses don't struggle because revalidation is difficult. Leaving everything until the last minute, losing CPD certificates, forgetting reflective accounts, tracking CPD manually, keeping evidence scattered. Every one of these mistakes is avoidable.</video:description>
+      <video:player_loc>https://www.tiktok.com/embed/v2/7650939861150485782</video:player_loc>
+      <video:publication_date>2026-06-13</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- CPD article: CPD 35 hours explained (YouTube) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/what-counts-as-cpd-for-nmc-revalidation.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/fA4CF9UlCYU/hqdefault.jpg</video:thumbnail_loc>
+      <video:title>NMC Revalidation CPD Explained: What Counts Towards Your 35 Hours?</video:title>
+      <video:description>What counts towards the 35 hours of CPD you need for NMC revalidation, explained in under a minute.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/fA4CF9UlCYU</video:player_loc>
+      <video:publication_date>2026-09-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- NMC Council AI article: NMC AI video (TikTok) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/nmc-council-july-2026-code-revalidation-ai.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.revalidationaicopilot.co.uk/assets/videos/7661369512129793282.jpg</video:thumbnail_loc>
+      <video:title>The NMC is officially talking about AI in revalidation</video:title>
+      <video:description>On 21 July, the NMC Council will consider the biggest revalidation update in years, including how AI and digital technology fit into the Code.</video:description>
+      <video:player_loc>https://www.tiktok.com/embed/v2/7661369512129793282</video:player_loc>
+      <video:publication_date>2026-07-11</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- Templates article: all your CPD one place (TikTok) -->
+  <url>
+    <loc>https://www.revalidationaicopilot.co.uk/blog/nmc-revalidation-templates-2026.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://www.revalidationaicopilot.co.uk/assets/videos/7623308576144035094.jpg</video:thumbnail_loc>
+      <video:title>All your CPD. One place. Zero stress.</video:title>
+      <video:description>Revalidation made easy. Track it. Draft it. Export it. Done.</video:description>
+      <video:player_loc>https://www.tiktok.com/embed/v2/7623308576144035094</video:player_loc>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+</urlset>
