@@ -10,6 +10,10 @@
 //      only when the margin is wide enough, hidden while a .cta-box is on
 //      screen (so two codes never show at once), and dismissible for 30 days.
 // Scans are counted by /get, which logs them before sending the phone to its store.
+// Impressions (a QR at least half on screen, once per placement per page view) are
+// logged here for experiment exp_qr_desktop_2026-10-06. Impression and scan rows
+// share the same medium (qr_blog_cta, qr_blog_sidebar, qr_download, qr_webapp_soon),
+// so scan rate per placement is a simple join in website_events.
 
 (function () {
   var desktop = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1024px)');
@@ -18,6 +22,37 @@
   var ctaBoxes = Array.prototype.filter.call(document.querySelectorAll('.cta-box'), function (el) {
     return !el.parentElement.closest('.cta-box');
   });
+
+  var EXPERIMENT = 'exp_qr_desktop_2026-10-06';
+  var seen = {};
+  function logImpression(medium) {
+    if (seen[medium]) return;
+    seen[medium] = true;
+    try {
+      navigator.sendBeacon('https://affiliate-signup.odubunmi.workers.dev', JSON.stringify({
+        type: 'track_qr_impression', medium: medium, campaign: EXPERIMENT,
+        path: location.pathname, url: location.href
+      }));
+    } catch (e) {}
+  }
+  // Fires once when an element is at least half visible. (A fixed, hidden element still
+  // "intersects", so the margin card and the pop-up log their own impression instead.)
+  function onHalfVisible(el, medium) {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) { logImpression(medium); io.disconnect(); }
+    }, { threshold: 0.5 });
+    io.observe(el);
+  }
+
+  // The download page already shows its QR in its own HTML. Here we only count it,
+  // and never intercept its store buttons.
+  var onDownloadPage = /^\/download(\.html)?$/.test(location.pathname);
+  if (onDownloadPage) {
+    var dlQr = document.querySelector('.qr-desktop img');
+    if (dlQr) onHalfVisible(dlQr, 'qr_download');
+    return;
+  }
 
   var DISMISS_KEY = 'rc_qr_card_dismissed';
   var DISMISS_DAYS = 30;
@@ -96,6 +131,7 @@
       soon.addEventListener('click', function (e) { if (e.target === soon) soon.close(); });
     }
     if (typeof soon.showModal === 'function') soon.showModal(); else return false;
+    logImpression('qr_webapp_soon');
     try {
       navigator.sendBeacon('https://affiliate-signup.odubunmi.workers.dev', JSON.stringify({
         type: 'track_download_click', store: 'web', source: 'website',
@@ -120,6 +156,7 @@
       '<img src="/images/qr-blog-cta.svg" alt="QR code: scan with your phone camera to download Revalidation Copilot" width="128" height="128" loading="lazy">' +
       '<p><strong>Reading on a computer? The web app is coming soon.</strong>Until then, point your phone\'s camera at this code to get the app. Free on iPhone and Android.</p>';
     box.appendChild(block);
+    onHalfVisible(block.querySelector('img'), 'qr_blog_cta');
   });
 
   // 2. Margin card.
@@ -157,6 +194,7 @@
     var show = !closed && desktop.matches && !ctaOnScreen &&
       window.scrollY > window.innerHeight * 0.8 && place();
     card.classList.toggle('is-visible', show);
+    if (show) logImpression('qr_blog_sidebar');
   }
 
   if ('IntersectionObserver' in window) {

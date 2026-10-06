@@ -24,7 +24,7 @@ async function supabaseInsert(env, row) {
       console.error('Supabase error:', res.status, errText);
       return { error: res.status, detail: errText.substring(0, 200) };
     }
-    return { ok: true, status: res.status, host: env.SUPABASE_URL.replace(/^https:\/\//, '').split('.')[0], keyTail: env.SUPABASE_SERVICE_ROLE_KEY.slice(-8) };
+    return { ok: true };
   } catch (err) {
     console.error('Supabase insert failed:', err.message);
     return { exception: err.message };
@@ -107,6 +107,32 @@ export default {
         });
 
         return new Response(JSON.stringify({ ok: true, supa }), {
+          headers: { ...headers, 'Content-Type': 'application/json' }
+        });
+      }
+
+      // Route: QR impression (experiment exp_qr_desktop_2026-10-06).
+      // Supabase only: a desktop visit can log up to four impressions, which would
+      // flood the Notion database. Only known placements are accepted, so junk posted
+      // to this public endpoint cannot pollute the experiment.
+      if (body.type === 'track_qr_impression') {
+        const QR_MEDIUMS = ['qr_blog_cta', 'qr_blog_sidebar', 'qr_download', 'qr_webapp_soon'];
+        if (!QR_MEDIUMS.includes(body.medium)) {
+          return new Response(JSON.stringify({ error: 'Unknown placement' }), {
+            status: 400, headers: { ...headers, 'Content-Type': 'application/json' }
+          });
+        }
+        const supa = await supabaseInsert(env, {
+          event_type: 'qr_impression',
+          page: 'QR',
+          path: String(body.path || '').substring(0, 500),
+          source: 'website',
+          medium: body.medium,
+          campaign: String(body.campaign || '').substring(0, 200),
+          url: String(body.url || '').substring(0, 2000),
+          user_agent: (request.headers.get('user-agent') || '').substring(0, 500),
+        });
+        return new Response(JSON.stringify({ ok: !!supa.ok }), {
           headers: { ...headers, 'Content-Type': 'application/json' }
         });
       }
