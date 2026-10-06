@@ -2,7 +2,8 @@
   "rewrites": [
     { "source": "/feedback", "destination": "/api/feedback" },
     { "source": "/feedback/", "destination": "/api/feedback" },
-    { "source": "/feedback/:slug*", "destination": "/api/feedback" }
+    { "source": "/feedback/:slug*", "destination": "/api/feedback" },
+    { "source": "/get", "destination": "/get.html" }
   ],
   "headers": [
     {

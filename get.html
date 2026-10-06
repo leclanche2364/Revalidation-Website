@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Get Revalidation Copilot</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #183247; color: #fff; text-align: center; padding: 24px; box-sizing: border-box; }
+  a { display: block; margin: 12px auto; max-width: 280px; padding: 14px 16px; border-radius: 12px; background: #0aa37f; color: #fff; font-weight: 700; text-decoration: none; }
+  a.secondary { background: rgba(255,255,255,0.14); }
+</style>
+</head>
+<body>
+<main>
+  <p>Opening the app store&hellip;</p>
+  <a href="https://apps.apple.com/gb/app/revalidation-ai-copilot/id6760566022">Download on the App Store</a>
+  <a class="secondary" href="https://play.google.com/store/apps/details?id=com.beemal.revalidationcopilot">Get it on Google Play</a>
+</main>
+<script>
+(function () {
+  // Where the QR code was: bs = blog sidebar card, bc = blog end-of-post box, dl = download page.
+  var MEDIUMS = { bs: 'qr_blog_sidebar', bc: 'qr_blog_cta', dl: 'qr_download' };
+  var s = new URLSearchParams(location.search).get('s');
+  var medium = MEDIUMS[s] || 'qr_unknown';
+
+  var ua = navigator.userAgent;
+  // iPadOS reports itself as a Mac, so a Mac with a touchscreen is an iPad.
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/.test(ua);
+
+  var target = ios
+    ? 'https://apps.apple.com/gb/app/revalidation-ai-copilot/id6760566022'
+    : android
+      ? 'https://play.google.com/store/apps/details?id=com.beemal.revalidationcopilot&referrer=' +
+        encodeURIComponent('utm_source=website&utm_medium=' + medium)
+      : '/download.html';
+
+  // Log real phone scans only. sendBeacon survives the redirect below and sends
+  // text/plain, so there is no CORS preflight to slow or block it.
+  if (ios || android) {
+    try {
+      navigator.sendBeacon('https://affiliate-signup.odubunmi.workers.dev', JSON.stringify({
+        type: 'track_download_click',
+        store: ios ? 'ios' : 'android',
+        source: 'website',
+        medium: medium,
+        campaign: 'qr',
+        url: location.href
+      }));
+    } catch (e) {}
+  }
+
+  location.replace(target);
+})();
+</script>
+</body>
+</html>

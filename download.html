@@ -107,6 +107,15 @@
       html { scroll-behavior: auto; }
       .btn { transition: none; }
     }
+
+    /* Desktop-only QR code: scan to install on a phone. Hidden on phones and tablets. */
+    .qr-desktop { display: none; }
+    @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+      .qr-desktop { grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem; padding: 0.9rem; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); color: #fff; text-align: left; }
+      .qr-desktop img { width: 128px; height: 128px; flex: none; background: #fff; border-radius: 8px; }
+      .qr-desktop p { margin: 0; font-size: 0.92rem; line-height: 1.45; }
+      .qr-desktop strong { display: block; margin-bottom: 0.2rem; }
+    }
   </style>
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -164,6 +173,10 @@
 >
   Get it on Google Play
 </a>
+            <div class="qr-desktop">
+  <img src="/images/qr-download.svg" alt="QR code: scan with your phone camera to download Revalidation Copilot" width="128" height="128">
+  <p><strong>On a computer?</strong>Point your phone's camera at this code. It opens the right store for your phone.</p>
+</div>
             </div>
           </div>
         </div>
