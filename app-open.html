@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening Revalidation Copilot</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #183247; color: #fff; text-align: center; padding: 24px; box-sizing: border-box; }
+  p { max-width: 420px; line-height: 1.5; }
+  a { display: block; margin: 12px auto 0; max-width: 280px; padding: 14px 16px; border-radius: 12px; background: #0aa37f; color: #fff; font-weight: 700; text-decoration: none; }
+  a.secondary { background: rgba(255,255,255,0.14); }
+</style>
+</head>
+<body>
+<main>
+  <p>Opening Revalidation Copilot&hellip;</p>
+  <p id="fallback" style="display:none;">Looks like the app isn't installed on this device.</p>
+  <a id="store" href="https://www.revalidationaicopilot.co.uk/download.html" style="display:none;">Get the app</a>
+  <a class="secondary" href="https://www.revalidationaicopilot.co.uk/index.html">Go to the website instead</a>
+</main>
+<script>
+(function () {
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var android = /Android/.test(ua);
+
+  // Try to open the app on phones. On desktop, go straight to the website.
+  if (ios || android) {
+    var hidden;
+    if (ios) {
+      hidden = document.createElement('iframe');
+      hidden.style.display = 'none';
+      document.body.appendChild(hidden);
+      hidden.src = 'revalidationaicopilot://open';
+    } else {
+      location.href = 'revalidationaicopilot://open';
+    }
+
+    // If the app opened, this page goes to the background and the timeout never runs.
+    setTimeout(function () {
+      document.getElementById('fallback').style.display = '';
+      document.getElementById('store').style.display = '';
+      document.querySelector('main p').textContent = 'Revalidation Copilot is not installed on this device.';
+    }, 1800);
+  } else {
+    document.querySelector('main p').textContent = 'Revalidation Copilot runs on iPhone and Android.';
+    document.getElementById('fallback').style.display = '';
+    document.getElementById('store').style.display = '';
+  }
+})();
+</script>
+</body>
+</html>
