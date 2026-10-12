@@ -9,11 +9,13 @@
   p { max-width: 420px; line-height: 1.5; }
   a { display: block; margin: 12px auto 0; max-width: 280px; padding: 14px 16px; border-radius: 12px; background: #0aa37f; color: #fff; font-weight: 700; text-decoration: none; }
   a.secondary { background: rgba(255,255,255,0.14); }
+  a.open { background: #0b8fbd; }
 </style>
 </head>
 <body>
 <main>
   <p>Opening Revalidation Copilot&hellip;</p>
+  <a id="openbtn" class="open" href="revalidationaicopilot://join" style="display:none;">Open the app</a>
   <p id="fallback" style="display:none;">Looks like the app isn't installed on this device.</p>
   <a id="store" href="https://www.revalidationaicopilot.co.uk/download.html" style="display:none;">Get the app</a>
   <a class="secondary" href="https://www.revalidationaicopilot.co.uk/index.html">Go to the website instead</a>
@@ -23,25 +25,30 @@
   var ua = navigator.userAgent;
   var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   var android = /Android/.test(ua);
+  var appOpened = false;
 
-  // Try to open the app on phones. On desktop, go straight to the website.
+  // If the page loses visibility or is unloaded, the app took over.
+  function markOpened() { appOpened = true; }
+  document.addEventListener('visibilitychange', function () { if (document.hidden) markOpened(); });
+  window.addEventListener('pagehide', markOpened);
+  window.addEventListener('blur', markOpened);
+
   if (ios || android) {
-    var hidden;
-    if (ios) {
-      hidden = document.createElement('iframe');
-      hidden.style.display = 'none';
-      document.body.appendChild(hidden);
-      hidden.src = 'revalidationaicopilot://open';
-    } else {
-      location.href = 'revalidationaicopilot://open';
-    }
+    // revalidationaicopilot://join matches the app's registered scheme on both
+    // platforms (Android intent-filter is scoped to host "join").
+    // Direct navigation is the reliable route on both iOS and Android.
+    setTimeout(function () { location.href = 'revalidationaicopilot://join'; }, 350);
 
-    // If the app opened, this page goes to the background and the timeout never runs.
+    // Show a manual button after a moment, in case the automatic attempt is blocked.
+    setTimeout(function () { document.getElementById('openbtn').style.display = ''; }, 1200);
+
+    // If the app never took over, fall back to the store/website.
     setTimeout(function () {
+      if (appOpened) return;
+      document.querySelector('main p').textContent = 'Revalidation Copilot is not installed on this device.';
       document.getElementById('fallback').style.display = '';
       document.getElementById('store').style.display = '';
-      document.querySelector('main p').textContent = 'Revalidation Copilot is not installed on this device.';
-    }, 1800);
+    }, 2500);
   } else {
     document.querySelector('main p').textContent = 'Revalidation Copilot runs on iPhone and Android.';
     document.getElementById('fallback').style.display = '';
