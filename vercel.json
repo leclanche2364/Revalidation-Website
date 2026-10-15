@@ -3,9 +3,23 @@
     { "source": "/feedback", "destination": "/api/feedback" },
     { "source": "/feedback/", "destination": "/api/feedback" },
     { "source": "/feedback/:slug*", "destination": "/api/feedback" },
-    { "source": "/get", "destination": "/get.html" }
+    { "source": "/get", "destination": "/get.html" },
+    { "source": "/app", "destination": "/get.html" },
+    { "source": "/app/:slug*", "destination": "/get.html" }
   ],
   "headers": [
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" }
+      ]
+    },
+    {
+      "source": "/.well-known/apple-app-site-association",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json" }
+      ]
+    },
     {
       "source": "/feedback-form.html",
       "headers": [

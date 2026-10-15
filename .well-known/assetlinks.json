@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.beemal.revalidationcopilot",
+      "sha256_cert_fingerprints": [
+        "C2:51:85:62:F4:C0:6E:0A:D3:D1:49:8B:39:5B:AD:2B:D6:FA:42:42:F0:21:AB:17:FA:92:B0:45:E3:34:2B:47"
+      ]
+    }
+  }
+]

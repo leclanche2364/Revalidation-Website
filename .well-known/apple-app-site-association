@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6X8YHKNA7J.com.beemal.revalidationcopilot",
+        "paths": [
+          "/app/*"
+        ]
+      }
+    ]
+  }
+}
