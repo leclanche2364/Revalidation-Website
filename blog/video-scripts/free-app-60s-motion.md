@@ -67,10 +67,10 @@ Finished a shift and got something to reflect on? Talk it out. The voice debrief
 
 ## SCENE 5 — What's Not Free (0:38–0:48)
 
-**Visual:** Honest comparison split-screen. Left side "Free" — all the features from earlier, bold and prominent. Right side "Pro £12.99/year" — only two items: "Unlimited AI drafting" and "PDF export." The split is clearly weighted toward Free.
+**Visual:** Honest comparison split-screen. Left side "Free" — all the features from earlier, bold and prominent. Right side "Pro £12.99/year" — only two items: "AI drafting" and "PDF export." The split is clearly weighted toward Free.
 
 **VO:**
-The Pro tier adds unlimited AI drafting and portfolio export for twelve ninety-nine a year. But the core toolkit? Completely free. No trial. No credit card.
+The Pro tier adds AI drafting and portfolio export for twelve ninety-nine a year. But the core toolkit? Completely free. No trial. No credit card.
 
 **On-screen text:**
 > Core toolkit: Free. Forever.
