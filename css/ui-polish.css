@@ -1,0 +1,182 @@
+/* Shared control polish for the marketing site and editorial pages. */
+:where(a, button, input[type="button"], input[type="submit"]).btn,
+:where(a, button, input[type="button"], input[type="submit"]).btn-primary,
+:where(a, button, input[type="button"], input[type="submit"]).btn-secondary,
+:where(a, button).btn-cta,
+:where(a, button).cta-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-width: 44px;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 0.75rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-shadow: 0 2px 5px rgba(24, 50, 71, 0.12);
+  transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button, input[type="button"], input[type="submit"]).btn:not(.btn-secondary),
+:where(a, button, input[type="button"], input[type="submit"]).btn-primary,
+:where(a, button).btn-cta,
+:where(a, button).cta-button {
+  background-color: #087c64;
+  border-color: #087c64;
+  color: #fff;
+}
+
+:where(a, button, input[type="button"], input[type="submit"]).btn:hover,
+:where(a, button, input[type="button"], input[type="submit"]).btn-primary:hover,
+:where(a, button).btn-cta:hover,
+:where(a, button).cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(24, 50, 71, 0.16);
+}
+
+:where(a, button, input[type="button"], input[type="submit"]).btn:not(.btn-secondary):hover,
+:where(a, button, input[type="button"], input[type="submit"]).btn-primary:hover,
+:where(a, button).btn-cta:hover,
+:where(a, button).cta-button:hover {
+  background-color: #06664f;
+  border-color: #06664f;
+}
+
+:where(a, button, input[type="button"], input[type="submit"]).btn:active,
+:where(a, button, input[type="button"], input[type="submit"]).btn-primary:active,
+:where(a, button).btn-cta:active,
+:where(a, button).cta-button:active {
+  transform: translateY(0);
+}
+
+:where(a, button, input[type="button"], input[type="submit"]).btn:focus-visible,
+:where(a, button, input[type="button"], input[type="submit"]).btn-primary:focus-visible,
+:where(a, button, input[type="button"], input[type="submit"]).btn-secondary:focus-visible,
+:where(a, button).btn-cta:focus-visible,
+:where(a, button).cta-button:focus-visible {
+  outline: 3px solid rgba(10, 163, 127, 0.42);
+  outline-offset: 3px;
+}
+
+:where(a, button, input[type="button"], input[type="submit"]).btn-secondary {
+  border-color: rgba(24, 50, 71, 0.16);
+  box-shadow: 0 1px 3px rgba(24, 50, 71, 0.08);
+}
+
+.cta-box :where(a, button).btn,
+.cta-box :where(a, button).btn-primary,
+.cta-box :where(a, button).btn-cta,
+.cta-box :where(a, button).cta-button {
+  background: #fff;
+  color: #087c64;
+  border-color: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 3px 8px rgba(0, 61, 48, 0.18);
+}
+
+@media (max-width: 600px) {
+  /* Editorial templates with Home / Features / CTA in a grouped nav row. */
+  header .container > .nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.75rem;
+    min-width: 0;
+  }
+
+  header .container > .nav > .logo {
+    flex: 1 0 100%;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  header .container > .nav > div {
+    display: flex;
+    flex: 1 1 100%;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  header .container > .nav > div > a:not(.btn) {
+    margin-right: 0 !important;
+    white-space: nowrap;
+  }
+
+  header .container > .nav > div > .btn {
+    flex: 0 1 auto;
+    width: auto;
+    min-height: 44px;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.88rem;
+  }
+
+  /* Compact templates with just a brand and one action stay on a single row. */
+  header .container.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  header .container.nav > .logo {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: nowrap;
+    font-size: 0.98rem;
+  }
+
+  header .container.nav > .btn {
+    flex: 0 1 auto;
+    width: auto;
+    min-height: 44px;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  .cta-box :where(a, button).btn,
+  .cta-box :where(a, button).btn-primary,
+  .cta-box :where(a, button).btn-cta,
+  .cta-box :where(a, button).cta-button {
+    width: auto;
+    min-width: min(100%, 12rem);
+  }
+}
+
+@media (max-width: 360px) {
+  header .container.nav {
+    flex-wrap: wrap;
+  }
+
+  header .container.nav > .logo {
+    flex: 1 0 100%;
+  }
+
+  header .container.nav > .btn {
+    margin-left: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(a, button, input[type="button"], input[type="submit"]).btn,
+  :where(a, button, input[type="button"], input[type="submit"]).btn-primary,
+  :where(a, button, input[type="button"], input[type="submit"]).btn-secondary,
+  :where(a, button).btn-cta,
+  :where(a, button).cta-button {
+    transition: none;
+  }
+}
